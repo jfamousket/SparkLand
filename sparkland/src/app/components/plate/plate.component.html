@@ -1,0 +1,52 @@
+<div class = "container-for-all-pages">
+  <section class="col-12">
+    <h1 class ="text-theme text-center p-lg-4 p-2">Edit Items On Your Plate And Check Out</h1>
+    <ng-container *ngIf = "getPlate()">
+        <small class="small-md caption text-center">You have {{ plate.totalItemsCount }} items in your plate</small>
+      <table class="col-12 col-md-10 mx-auto my-2 my-lg-5 shadow-sm">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Unit Price</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor = "let plateItem of plate.items, let i = index">
+            <td class="text-uppercase">
+              {{ plateItem.it_name }}
+            </td>
+            <td>
+              <item-qty [item] = "plateItem"></item-qty>
+            </td>
+            <td>
+              {{ plateItem.it_price }}
+            </td>
+            <td>
+              {{ plateItem.it_price * plateItem.qty | currency: "XAF" }}
+            </td>
+          </tr>
+          <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td>Total</td>
+            <td>{{ plate.totalItemsCount }} item<span *ngIf=" plate.totalItemsCount > 1 ">s</span> in plate</td>
+            <td></td>
+            <td>{{ plate.totalPrice | currency: "XAF" }}</td>
+            </tr>
+        </tfoot>
+      </table>
+      <div class="text-center clearfix container m-0 mx-auto" *ngIf="plate.items">
+          <button class="btn float-left hvr-sweep-to-right m-3" (click) = "clearPlate()" *ngIf = "plate.items.length">Clear Plate</button>
+          <button class="btn float-right hvr-sweep-to-right m-3 light-theme-bg" *ngIf = "plate.items.length" [routerLink] = "['/check-out']">Check Out</button>
+      </div>
+    </ng-container>
+  </section>
+</div>

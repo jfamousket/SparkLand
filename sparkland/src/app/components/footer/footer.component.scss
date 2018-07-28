@@ -1,0 +1,49 @@
+@import '../../../variables';
+
+footer{
+	background:$nice-grey;
+	position:fixed!important;
+	bottom:0;
+	text-align: center;
+	z-index: -1000000;
+	height: auto;
+	h2{
+		font-size: 3em;
+	}
+	ul{
+		li{
+			display: inline-block;
+		}
+		&:nth-child(3){
+			li{
+				border-right: 2px solid $captions;
+				color:$captions;
+				padding:10px;
+				font-weight: bolder;
+				margin:10px 0;
+				&:hover{
+					color:$hcaptions;
+				}
+			}
+		}
+	}
+}
+#footerFade{
+	margin-bottom: 257px;
+}
+
+.contact{
+	height: auto;
+	margin-bottom: 300px;
+	.contact-type{
+		height: auto;
+		display: inline-block;
+		padding: 10px 20px;
+		color:$theme-color;
+		font-size: 1.6em;
+		&:nth-child(even){
+			background:$theme-color;
+			color:$white;
+		}
+	}
+}

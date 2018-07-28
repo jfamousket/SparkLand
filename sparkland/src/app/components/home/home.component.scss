@@ -1,0 +1,150 @@
+@import '../../../variables';
+@import '../../../mixins';
+//top menu items design wrapper for the whole field
+.daily-menu-wrapper{
+	background: $nice-grey;
+	height:auto;
+	border-radius: 20px 20px 20px 0;
+	text-align: center;
+	//caption ontop of top menu items
+	.caption{
+		font-size: 2.5em;
+		margin-bottom: 0;
+	}
+	//wrapper for each top menu item
+	.top-daily-wrapper{
+		padding:10px;
+        height: 200px;
+        &:last-of-type{
+            span{
+                font-size:3em;
+            }
+		}
+		//actual top menu item with the bg img
+        .top-daily{
+            background:$light-theme-color;
+            height: 100%;
+            position: relative;
+            width:100%;
+            overflow: hidden;
+            display: inline-block;
+            cursor: pointer;
+            border-radius: 10px 10px 10px 0;
+            &:nth-child(even){
+                background:$light-theme-color;
+            }
+            a{
+                position: fixed;
+                display: block;
+                width:100%;
+                height: 100%;
+                z-index: 999;
+                left: 0;
+			}
+			//should try to change this n use .bcg==backgroundimage division instead
+            img{
+                position: absolute;
+                top:0;
+                left:0;
+                width:100%;
+                height: 100%;
+                -webkit-transform: scale(1.1, 1.3);
+                   -moz-transform: scale(1.1, 1.3);
+                    -ms-transform: scale(1.1, 1.3);
+                     -o-transform: scale(1.1, 1.3);
+                        transform: scale(1.1, 1.3);
+            }
+            &:hover{
+                .top-daily-description{
+                    bottom:0;
+                }
+            }
+    
+        }
+	}
+//description= name which comes up on hover
+	.top-daily-description{
+		transition:all 0.4s ease-in-out;
+		position:absolute;
+		background:transparentize($theme-color, 0.5);
+		width:100%;
+		left:0;
+		padding:20px;
+		color:$white;
+		font-size:1.5em;
+		text-transform: uppercase;
+		display: block;
+		bottom:-200px;
+	}
+}
+//wrapper for the services 
+.services{
+	height: auto;
+	padding-top:10px;
+	background:$nice-grey;
+	text-align: center;
+	//style for each service
+	.service{
+		height: auto;
+		padding:20px;
+		color:$white;
+		font-size:1.5em;
+		text-align: left;
+		border-radius: 15px 15px 15px 0;
+		cursor:pointer;
+		margin:20px;
+		background:$captions;
+		display: inline-block;
+		//opacity: 0;
+		&:before{
+			border-radius: 15px 15px 15px 0;
+		}
+	}
+	//services caption specific styling
+	.caption{
+		font-size: 2.5em;
+	}
+}
+//styling for team section
+
+.team{
+	background:url("../../../assets/img/team-bg.jpg") no-repeat;
+	background-attachment: fixed;
+	background-position: 0% -10px;
+	text-align: center;
+	height: auto;
+	position: relative;
+	//opacity: 0;
+	.caption{
+		color:$theme-color;
+		font-size: 2.5em;
+	}
+}
+//each team slide
+.team-member{
+	//specific styling of the image for big screens
+	@media screen and (min-width: 100px){
+		img{
+			display: block;
+			width:300px !important;
+			height: 200px;
+		}
+	}
+	span{
+		font-size: 1.5em;
+	}
+}
+
+
+@keyframes fadeIn{
+    0%{
+        opacity: 0;
+        }
+    100%{
+        opacity: 1;
+        }
+}
+
+.fadeIn{
+    animation: fadeIn 1s forwards 0s ease-in;
+}

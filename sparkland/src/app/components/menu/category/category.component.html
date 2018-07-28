@@ -1,0 +1,8 @@
+<div class="row">
+  <div *ngFor = "let c of categoryList, let i = index" 
+  routerLink = "/menu" [queryParams] = "{ category: c }"  
+  class="category col-10 mx-sm-auto col-md-5 mx-md-3 col-lg  hvr-sweep-to-top shadow-sm" 
+  [class.active] = "category === c">
+    <h2>{{c}}</h2>
+  </div>
+</div>

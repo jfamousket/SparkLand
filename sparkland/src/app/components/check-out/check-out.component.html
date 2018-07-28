@@ -1,0 +1,26 @@
+<div class="container-for-all-pages">
+  <section class="col-12 col-md-10 mx-auto nice-bg">
+      <form class="col-12 col-lg-6 my-5 shadow-sm" [formGroup] = "checkOut" novalidate>
+        <div class="formGroup">
+          <label for="name">Name</label>
+          <input type="text" name="name" class="formControl" formControlName = "name">
+        </div>
+        <div class="formGroup">    
+          <label for="telephone">Telephone</label>
+          <input type="text" name="telephone" class="formControl" formControlName = "telephone">          
+        </div>
+        
+        <div class="formGroup">
+          <label for="residence">Residence</label>
+          <input type="text" name="residence" class="formControl" formControlName = "residence">
+        </div>
+        <div class="clearfix">
+            <button type="submit" class="float-left">Make Payment</button>
+            <button type="submit" class="float-right" (click)="placeOrder()" >Place Order</button>
+        </div>
+      </form>
+      <p>{{checkOut.value | json}}</p>
+      <p *ngIf="orderId">{{orderId}}</p>
+      <div class="col-lg-6 col-12"></div>
+  </section>
+</div>

@@ -1,0 +1,40 @@
+<div class="container-for-all-pages">
+
+  <!-- Category List -->
+
+  <section>
+    <div id="category">
+      <category [category] = "category" ></category>
+    </div>
+  </section>
+
+  <!-- Search Bar  -->
+  <div class="search-form col-12 col-lg-9 mx-auto p-md-5 p-3" id="search">
+    <search-form (searching) = "search($event)" [items] = "itemList" ></search-form>
+  </div>
+  <div class="intro text-center col-12" *ngIf="!noResult">
+    <h1 class="text-theme">Our Yummy Menu For All Your Needs</h1>
+    <small class="small-md caption" >Your plate is on the navigation bar at the top, click on it to complete your order</small>
+  </div>
+  
+  <!--  Menu Items  -->
+
+  <div class="col-10 col-md-11 col-lg-9 mx-auto" id="menu">
+    <div class="row">
+      <div *ngFor = "let item of filteredList, let i = index" #i class="col-lg-4 col-12 col-md-6">
+          <item-card [item] = "item" [category] = "category" (itemClicked) = "showForm($event)"></item-card>
+      </div>
+    </div>
+    <div class="errors text-center">
+      <h1 class="w-100 text-center text-theme search-fail my-5" *ngIf="noResult">Sorry We Don't Have "{{searchValue}}" On Our Menu</h1>
+      <h1 class="w-100 text-center text-theme search-fail my-5" *ngIf="emptyMenu">{{emptyMenu}}</h1>
+    </div>
+  </div>
+
+  <div class="buy-form">
+    <buy-form></buy-form>
+  </div>
+</div>
+
+
+

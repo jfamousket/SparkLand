@@ -1,0 +1,7 @@
+{
+    "/spark": {
+        "target": "http://localhost:80",
+        "secure": true,
+        "changeOrigin": true
+    }
+}

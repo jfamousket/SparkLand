@@ -1,0 +1,120 @@
+@import '../../../variables';
+@import '../../../mixins';
+
+.gallery-container{
+    background: $nice-grey;
+    height:auto;
+    position: relative;
+    margin:0;
+    .caption{
+        margin:0;
+        padding:20px;
+    }
+    .gallery-grid{
+        margin:0 auto;
+        padding:20px;
+        height:100%;
+        width:80%;
+    }
+    .gallery-item{
+        float: left;
+        height: 300px;
+        overflow: hidden;
+        position: relative;
+        cursor:pointer;
+        @include br-md;
+        padding:5px;
+        .bcg{
+            position: absolute;
+            background:url(../../../assets/img/food.jpg) no-repeat;
+            background-size:150%;
+            width:100%;
+            height: 100%;
+            z-index: 1;
+            transition:all 0.4s ease-in-out;
+            transform-origin: 50% 50%;
+        }
+        .overlay{
+            position:absolute;
+            width:100%;
+            height: 100%;
+            background:$theme-color;
+            opacity:0.3;
+            z-index: 2;
+            transition:0.4s ease-in-out;
+        }
+        .content-up{
+            position: absolute;
+            text-transform: uppercase;
+            top:50%;
+            left:50%;
+            transform: translate(-50%, -400px);
+            width:100%;
+            color:$white;
+            font-weight:200;
+            font-family:raleway;
+            z-index: 3;
+            text-align:center;
+            transition:0.4s ease-in-out;
+            h3{
+                font-size:2em;
+            }
+        }
+        .content-down{
+            position: absolute;
+            bottom:25%;
+            left:50%;
+            text-transform: uppercase;
+            transform: translate(-50%, 400px);
+            width:100%;
+            color:$white;
+            font-weight:100;
+            font-family:raleway;
+            z-index: 3;
+            text-align:center;
+            transition:0.4s ease-in-out;
+            h5{
+                font-size:1.3em;
+            }
+            p{
+                text-transform: capitalize !important;
+                font-size:1em;
+            }
+        }
+        &:hover{
+            .overlay{
+                opacity: 0.8;
+                transform: rotate(xx) scale(1);
+            }
+            .content-up{
+                transform: translate(-50%, -100%);
+            }
+            .content-down{
+                transform: translate(-50%, -10%);
+            }
+            .bcg{
+                background-size:170%;
+            }
+        }
+    }
+    
+}
+
+
+/*animations*/
+
+@keyframes fadeInDown{
+    0%{
+        transform: rotate(0) translateY(-20px);
+        opacity: 0;
+        }
+    100%{
+        transform: rotate(0) translateY(0);
+        opacity: 1;
+        }
+}
+
+.animFadeInDown{
+    animation: fadeInDown 1s forwards 0s ease-in;
+}
+

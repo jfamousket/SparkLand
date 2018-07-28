@@ -1,0 +1,11 @@
+@import '../../../variables';
+@import '../../../mixins';
+
+section{
+	height: auto;
+	background:$nice-grey;
+}
+
+#category, #menu, #search, .intro{
+	background: $nice-grey;
+}

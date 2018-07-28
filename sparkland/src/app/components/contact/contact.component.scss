@@ -1,0 +1,78 @@
+@import '../../../variables';
+
+.main-header{
+	background-image: url('../../../assets/img/contact-img/main-header.jpg');
+}
+section{
+	height: auto;
+	background:$nice-grey;
+}
+.contact-form{
+	border:0;
+	border-radius: 20px 20px 20px 0;
+	background:$white;
+	margin:0px 20px;
+	margin-top:40px;
+	label{
+		display:block;
+		color:$captions;
+		font-family:raleway;
+		font-size: 2em;
+	}
+	input, textarea{
+		width:100%;
+		font-family: raleway;
+		border-radius: 10px 10px 10px 0;
+		margin:10px 0px;
+		color:$white !important;
+		border:0;
+		padding:15px;
+		background:lighten($color: $captions, $amount: 10);
+		font-size: 1.5em;
+		&::placeholder{
+			color:$white;
+		}
+	}
+	.nice-select{
+		width:100%;
+		border-radius: 10px 10px 10px 0;
+		color:$black;
+		.current{
+			color:$black;
+		}
+		.list{
+			width:100%;
+			border-radius: 10px 10px 10px 0;
+			font-family: raleway;
+		}
+	}
+	button{
+		padding:10px;
+		width:100%;
+		font-size: 2em;	
+		border-radius: 10px 10px 10px 0;
+		&:before{
+			border-radius: 10px 10px 10px 0;
+		}
+	}
+}
+.space{
+	background:$nice-grey;
+	height: 100px;
+}
+/*animations*/
+
+@keyframes fadeInDown{
+    0%{
+        transform: rotate(0) translateY(-20px);
+        opacity: 0;
+        }
+    100%{
+        transform: rotate(0) translateY(0);
+        opacity: 1;
+        }
+}
+
+.animFadeInDown{
+    animation: fadeInDown 1s forwards 0s ease-in;
+}

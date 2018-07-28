@@ -1,0 +1,92 @@
+<div class="container-for-all-pages">
+  <div class="daily-menu-wrapper col-12">
+    <h1 class="caption fadeIn">Our Special Dishes</h1>
+    <div class="row mx-auto">
+    <div class="top-daily-wrapper col-12 col-lg-3 col-md-6 col-sm-6 animFadeInDown">
+      <div class="top-daily shadow-lg">
+        <img src="assets/img/top-dish1.jpg" alt="">
+        <span class="top-daily-description">
+          Corn Fufu/Vegetable
+        </span>
+      </div>
+    </div>
+
+      <div class="top-daily-wrapper col-12 col-lg-3 col-md-6 col-sm-6 animFadeInDown">
+        <div class="top-daily shadow-lg">
+          <img src="assets/img/top-dish2.jpg" alt="">
+          <span class="top-daily-description">
+            Achu
+          </span>
+        </div>
+      </div>
+
+      <div class="top-daily-wrapper col-12 col-lg-3 col-md-6 col-sm-6 animFadeInDown">
+        <div class="top-daily shadow-lg">
+          <img src="assets/img/top-dish3.jpg" alt="">
+          <span class="top-daily-description">
+            Ekwang
+          </span>
+        </div>
+      </div>
+      
+      <div class="top-daily-wrapper col-12 col-lg-3 col-md-6 col-sm-6 animFadeInDown" [routerLink] ="['/menu']">
+        <div class="top-daily shadow-lg text-left px-4 hvr-sweep-to-right">
+          <span class="text-white">SEE OUR FULL MENU</span>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <!-- Services Section -->
+
+  <section class="services">
+    <h1 class="caption" id="serviceAnimationTrigger" animFadeInDown>Our Services At A Glance</h1>
+    <div class="service shadow-sm col-11 mx-sm-auto col-md-5 mx-md-3 col-lg-4 hvr-sweep-to-top">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequat ante ac congue. Quisque porttitor porttitor tempus.</div>
+    <div class="service shadow-sm col-11 mx-sm-auto col-md-5 mx-md-3 col-lg-4 hvr-sweep-to-top">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequat ante ac congue. Quisque porttitor porttitor tempus.</div>
+    <div class="service shadow-sm col-11 mx-sm-auto col-md-5 mx-md-3 col-lg-4 hvr-sweep-to-top">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequat ante ac congue. Quisque porttitor porttitor tempus.</div>
+    <div class="service shadow-sm col-11 mx-sm-auto col-md-5 mx-md-3 col-lg-4 hvr-sweep-to-top">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequat ante ac congue. Quisque porttitor porttitor tempus.</div><br>
+    <a [routerLink] ="['/menu']" class="hvr-sweep-to-right my-4 btn">SEE OUR FULL MENU AND PLACE QUICK ORDERS</a>	
+  </section>
+
+  <!-- Team Section -->
+
+  <section class="team">
+    <h1 class="caption">We Wouldn't Be Here Without Our Team</h1>
+    <owl-carousel class="team-slides col-12" [options] ="{
+      items:1, 
+      dots: true, 
+      navigation:false, 
+      loop: true, 
+      autoplay: true, 
+      autoplayTimeout: 3000,
+      responsiveClass: false,
+      margin: 0
+    }" 
+      [carouselClasses]="['row', 'sliding']">
+      <div class="team-member col-5 mx-auto text-center">
+        <img src="assets/img/team-1.jpg" alt="team-member" class="round-pic mx-auto">
+        <h2 class="text-white my-4 pt-1">Joshua Manning</h2>
+        <small class="text-theme small-md">C.E.O. / FOUNDER</small>
+      </div>
+      
+      <div class="team-member col-5 mx-auto text-center">
+        <img src="assets/img/team-2.jpg" alt="team-member" class="round-pic mx-auto">
+        <h2 class="text-white my-4 pt-1">Joshua Manning</h2>
+        <small class="text-theme small-md">Chief Cook</small>
+      </div>
+      
+      <div class="team-member col-5 mx-auto text-center">
+        <img src="assets/img/team-3.jpg" alt="team-member" class="round-pic mx-auto">
+        <h2 class="text-white my-4 pt-1">Joshua Manning</h2>
+        <small class="text-theme small-md">Assistant Cook</small>
+      </div>
+      
+      <div class="team-member col-5 mx-auto text-center">
+        <img src="assets/img/team-4.jpg" alt="team-member" class="round-pic mx-auto">
+        <h2 class="text-white my-4 pt-1">Joshua Manning</h2>
+        <small class="text-theme small-md">Sales Personnel</small>
+      </div>
+    </owl-carousel>
+  </section>
+</div>

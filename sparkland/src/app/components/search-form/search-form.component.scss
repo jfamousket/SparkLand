@@ -1,0 +1,15 @@
+@import '../../../variables';
+@import '../../../mixins';
+
+.search-input{
+    padding:15px;
+    border-radius: 0 0 0 10px;
+}
+.search-btn{
+    border-radius: 0 10px 10px 0;
+    font-size: 1.2em;
+    background:$light-theme-color;
+    &::before{
+        border-radius: 0 10px 10px 0;
+    }
+}

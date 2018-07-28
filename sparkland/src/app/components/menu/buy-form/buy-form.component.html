@@ -1,0 +1,20 @@
+<form class="col-12 py-2 comp-list">
+  <div class="container-fluid mx-auto py-0" *ngIf="itemChosen">
+    <div class="header row m-0">
+      <div class="small-menu-icon col-2" (click) = "closeForm()">
+        <div class="bar"></div>
+      </div>
+      <small class=" col-12 col-md-8 text-center small-md caption text-capitalize">you might wanna take this with {{itemChosen.it_name}}</small>
+      <div class="col-2 show-option"><button class="btn" (click)="neverShow()">Don't Show Again</button></div>
+    </div>
+    <div class="row">
+        <div class="complement-item col" *ngFor="let complement of complements">
+          <div  class="col-12 complement-details slide_In_Down">
+            <h1 class="complement-name">{{complement.it_name}}</h1>
+            <small class="complement-price small-sm my-2"> {{complement.it_price | currency: 'XAF'}}</small>
+            <button type="button" class="btn">Add To Plate</button>
+          </div>
+        </div>      
+    </div>
+  </div>
+</form>

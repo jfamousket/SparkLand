@@ -1,0 +1,15 @@
+@import '../../../variables';
+@import '../../../mixins';
+
+.qty-btn{
+    background: transparent!important;
+    color:$black !important;
+}
+.item-btn{
+    transition:all 0.4s ease-in-out;
+    @include br-sm;
+    background: $light-theme-color;
+    &:hover{
+        background:$theme-color;
+    }
+}

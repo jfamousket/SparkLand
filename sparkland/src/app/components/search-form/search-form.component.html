@@ -1,0 +1,5 @@
+<div class="input-group px-lg-5 p-2">
+  <input type="text" (keyup) = "search(query.value)" #query placeholder="Search for any dish by name or price" class=" shadow-sm search-input col-8 col-lg-10 col-md-9"/>
+  <button type="button" class=" shadow-sm search-btn col-4 col-lg-2 col-md-3 hvr-sweep-to-right" (click) = "search(query.value)">Search</button>
+</div>
+<div class="w-100 my-2 small-lg" *ngIf="query.value">You searched for "{{query.value}}"</div>

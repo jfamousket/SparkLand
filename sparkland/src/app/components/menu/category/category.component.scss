@@ -1,0 +1,53 @@
+@import '../../../../variables';
+@import '../../../../mixins';
+
+.category{
+	height: auto;
+	overflow: hidden;
+	padding:30px;
+	background: url(../../../../assets/img/food.jpg) no-repeat;
+	background-size: 400px 300px !important;
+	margin:10px 20px;
+	border-radius: 20px 20px 30px 0;
+	cursor: pointer;
+	position: relative;
+	h2{
+		font-size:2em;
+		color:$white;
+		text-transform: uppercase;
+		font-weight: bolder;
+		z-index: 999;
+
+	}
+	&:before{
+		border-radius: 20px 20px 20px 0;
+		opacity: 0.9;
+	}
+	&:nth-of-type(1){
+		background: url(../../../../assets/img/menu-img/breakfast.jpg) no-repeat;
+
+	}
+	&:nth-of-type(2){
+		background: url(../../../../assets/img/menu-img/main-dishes.jpg) no-repeat;
+
+	}
+}
+
+.active{
+    &:before{
+        -webkit-transform: scaleY(2);
+           -moz-transform: scaleY(2);
+            -ms-transform: scaleY(2);
+             -o-transform: scaleY(2);
+                transform: scaleY(2);
+                border-radius: 20px 20px 20px 0;
+    }
+}
+
+/***** Media ****/
+
+@media screen and (max-width:700px) {
+	.category{
+		background-size: 500px 500px !important;
+	}
+}

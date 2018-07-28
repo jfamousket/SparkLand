@@ -1,0 +1,16 @@
+<div class="menu-item my-lg-5 my-3 mx-0 shadow-sm">
+  <div class="col-12 item-image">
+    <img src="../../../assets/img/menu-img/item-temp.png" [alt]="item.it_name">
+  </div>
+  <div  class="col-12 item-details">
+    <h1 class="item-name">{{item.it_name}}</h1>
+    <small class="item-name small-sm my-2"> {{item.it_price | currency: 'XAF'}}</small>
+    <div class="addBtn">
+      <button *ngIf = "getqty() === 0; else updateQuantity" type="button"  (click) = "addToPlate()" 
+      (click) = "showComplements(item)" class="item-btn">Add To Plate</button>
+      <ng-template #updateQuantity>
+        <item-qty [item] = "item"></item-qty>
+      </ng-template>
+    </div>
+  </div>
+</div>

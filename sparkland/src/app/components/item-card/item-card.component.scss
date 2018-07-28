@@ -1,0 +1,45 @@
+@import '../../../variables';
+@import '../../../mixins';
+
+.card{
+    border:0;
+    box-shadow: none;
+}
+
+.item-image{
+    text-align:center;
+    img{
+        width:100px;
+        height:100px;
+    }
+}
+.item-details{
+    padding:30px;
+    text-align:center;
+    .item-name{
+        text-align:center;
+        font-weight: bold;
+        color:$hcaptions;
+        letter-spacing: 2px;
+        vertical-align: middle;
+        text-transform: uppercase;
+    }
+    .item-btn{
+        transition:all 0.4s ease-in-out;
+        @include br-sm;
+        background: $light-theme-color;
+        &:hover{
+            background:$theme-color;
+        }
+    }
+}
+
+.menu-item{
+	border:1px solid rgba(0,0,0,0.2);
+    @include br-lg;
+	background: $white;
+    padding:10px;
+    @media screen and (min-width:1000px) {
+        margin:40px;
+    }
+}

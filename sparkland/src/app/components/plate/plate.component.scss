@@ -1,0 +1,33 @@
+@import '../../../variables';
+@import '../../../mixins';
+
+
+section {
+    background: $nice-grey;
+    height: auto;
+}
+table {
+    background: $white;
+    @include br-md;
+    border: 1px solid $nice-grey;
+    tfoot, thead{
+        background:$theme-color;
+        color: $white;
+        font-size:1.3em;
+    }
+}
+
+td, th, tr, thead {
+    text-align: center;
+    padding: 20px;
+    border: none;
+}
+.btn{
+    padding:20px;
+    background:$captions;
+    @include br-md;
+    font-weight: bold;
+    &:before{
+        @include br-md;
+    }
+}
