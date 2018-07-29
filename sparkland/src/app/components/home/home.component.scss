@@ -109,12 +109,12 @@
 
 .team{
 	background:url("../../../assets/img/team-bg.jpg") no-repeat;
+	background-size: 100%;
 	background-attachment: fixed;
-	background-position: 0% -10px;
+	background-position: 0 -10px;
 	text-align: center;
 	height: auto;
 	position: relative;
-	//opacity: 0;
 	.caption{
 		color:$theme-color;
 		font-size: 2.5em;
