@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppErrorHandler } from './shared/error-handler';
 import { OwlModule } from 'ngx-owl-carousel';
 import { InterceptorModule } from './shared/interceptor.module';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -20,6 +21,8 @@ import { BeforeFooterComponent } from './components/before-footer/before-footer.
 import { ItemCardComponent } from './components/item-card/item-card.component';
 import { CategoryComponent } from './components/menu/category/category.component';
 import { SearchFormComponent } from './components/search-form/search-form.component';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 import { ItemService } from './services/item-service/item.service';
 import { FilterService } from './services/filter-service/filter.service';
@@ -32,7 +35,7 @@ import { ItemQtyComponent } from './components/item-qty/item-qty.component';
 import { CheckOutComponent } from './components/check-out/check-out.component';
 import { OrderService } from './services/order-service/order.service';
 
-
+library.add(faFacebook, faInstagram)
 
 @NgModule({
   declarations: [
@@ -60,7 +63,8 @@ import { OrderService } from './services/order-service/order.service';
     HttpModule,
     ReactiveFormsModule,
     FormsModule,
-    InterceptorModule
+    InterceptorModule,
+    FontAwesomeModule
   ],
   providers: [
     DataService,
