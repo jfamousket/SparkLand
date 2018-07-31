@@ -1,0 +1,14 @@
+@import '../../../variables';
+@import '../../../mixins';
+
+.add-btn {
+    button {
+        font-weight: 900;
+        transition:all 0.4s ease-in-out;
+        @include br-sm;
+        background: $light-theme-color;
+        &:hover{
+            background:$theme-color;
+        }
+    }
+}

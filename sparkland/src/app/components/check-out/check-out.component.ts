@@ -1,44 +1,54 @@
 import { Component, OnInit, OnDestroy, OnChanges } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { PlateService } from '../../services/plate-service/plate.service';
 import { map, switchMap, filter } from 'rxjs/operators';
 import { Plate } from '../../shared/plate';
 import { Subscription } from 'rxjs';
 import { DataService } from '../../services/data-service/data.service';
+import { OrderService } from '../../services/order-service/order.service';
+import { checkNum, checkStart, checkBadWords, checkWordStart } from '../../shared/validation';
 
 @Component({
-  selector: 'app-check-out',
+  selector: 'check-out',
   templateUrl: './check-out.component.html',
   styleUrls: ['./check-out.component.scss']
 })
 export class CheckOutComponent implements OnInit, OnDestroy {
   checkOut: FormGroup;
-  name = new FormControl();
-  telephone = new FormControl();
-  residence = new FormControl();
+  name = new FormControl('', [Validators.required, checkBadWords, checkWordStart]);
+  telephone = new FormControl('', [Validators.required, Validators.minLength(9), Validators.maxLength(9), checkStart, checkNum ]);
+  residence = new FormControl('', [Validators.required, checkWordStart]);
   plate: Plate;
-  subscription: Subscription;
-  orderId: string;
+  orderSubscription: Subscription;
+  customerSubscription: Subscription;
+  success: string;
+  orderId;
 
-  constructor(private plateService: PlateService, private dataService: DataService) {
+  constructor(private plateService: PlateService, private dataService: DataService, private orderService: OrderService) {
   }
 
   ngOnInit() {
     $(window).scrollTop(0);
     this.createForm();
+  }
+  getPlate() {
     this.plateService.getPlate().pipe(map(x => new Plate(x))).subscribe(plate => this.plate = plate);
+    return this.plate;
   }
   placeOrder() {
-    console.log(this.createOrderId());
-      // let order = {
-      //   id: this.plateService.getPlateId(),
-      //   userDetails: this.checkOut,
-      //   items: this.plate,
-      // } 
+    this.orderSubscription = this.orderService.addOrder(this.checkOut.value, this.plate).subscribe(res => {
+      this.success = res.json();
+      this.plateService.clearPlate();
+    });
+    this.customerSubscription = this.orderService.addCustomer(this.checkOut.value).subscribe();
+    this.orderId = this.orderService.getOrderId();
   }
 
   ngOnDestroy() {
-    //this.subscription.unsubscribe();
+    if(this.orderSubscription && this.customerSubscription) {
+      this.orderSubscription.unsubscribe();
+      this.customerSubscription.unsubscribe();
+    }
   }
 
   private createForm() {
@@ -50,11 +60,5 @@ export class CheckOutComponent implements OnInit, OnDestroy {
   }
 
 
-  private createOrderId() {
-    let id = this.plateService.getPlateId();
-    let name = this.name.value;
-    let tel = this.telephone.value; 
-    let res = this.residence.value
-    return id + name.slice(0,2) + tel.slice(0,2) + res.slice(0,2);
-  }
+
 }

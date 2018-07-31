@@ -6,7 +6,6 @@ import { GalleryComponent } from './components/gallery/gallery.component';
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { PlateComponent } from './components/plate/plate.component';
-import { CheckOutComponent } from './components/check-out/check-out.component';
 
 
 const routes: Routes = [
@@ -18,10 +17,6 @@ const routes: Routes = [
   {
     path: 'plate',
     component: PlateComponent,
-  },
-  {
-    path: 'check-out',
-    component: CheckOutComponent,
   },
   {
     path: 'home',

@@ -6,22 +6,50 @@ section {
     background: $nice-grey;
     height: auto;
 }
-table {
-    background: $white;
-    @include br-md;
-    border: 1px solid $nice-grey;
-    tfoot, thead{
-        background:$theme-color;
-        color: $white;
-        font-size:1.3em;
+.plate-details {
+    margin:20px;
+    padding:10px;
+    font-size:16px;
+    @media screen  and (max-width:1000px){
+        margin:5px;
+        padding:5px;
+    }
+    vertical-align: middle;
+    * {
+        vertical-align: middle;
+        padding:10px;
+        @media screen  and (max-width:1000px){
+            padding:2px;
+        }
+        width:auto;
+    }
+    .it-image {
+        img{
+            height: 80px;
+            width: 80px;
+        }
+    }
+    .it-qty {
+        align-content: center;
+        @media screen and (max-width:600px) {
+            width:44px !important;
+        }
+    }
+    .it-name {
+        width:120px;
+        min-width: 80px;
+        font-size: 1.7em;
+        font-weight: 700;
+        text-transform: capitalize;
+    }
+    .it-price {
+        min-width: 80px;
+        font-weight: 700;
+        text-transform: capitalize;
+        font-size: 1.4em;
     }
 }
 
-td, th, tr, thead {
-    text-align: center;
-    padding: 20px;
-    border: none;
-}
 .btn{
     padding:20px;
     background:$captions;

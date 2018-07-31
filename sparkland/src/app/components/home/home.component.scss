@@ -1,111 +1,157 @@
 @import '../../../variables';
 @import '../../../mixins';
-//top menu items design wrapper for the whole field
-.daily-menu-wrapper{
-	background: $nice-grey;
-	height:auto;
-	border-radius: 20px 20px 20px 0;
-	text-align: center;
-	//caption ontop of top menu items
-	.caption{
-		font-size: 2.5em;
-		margin-bottom: 0;
-	}
-	//wrapper for each top menu item
-	.top-daily-wrapper{
-		padding:10px;
-        height: 200px;
-        &:last-of-type{
-            span{
-                font-size:3em;
-            }
-		}
-		//actual top menu item with the bg img
-        .top-daily{
-            background:$light-theme-color;
-            height: 100%;
-            position: relative;
-            width:100%;
-            overflow: hidden;
-            display: inline-block;
-            cursor: pointer;
-            border-radius: 10px 10px 10px 0;
-            &:nth-child(even){
-                background:$light-theme-color;
-            }
-            a{
-                position: fixed;
-                display: block;
-                width:100%;
-                height: 100%;
-                z-index: 999;
-                left: 0;
-			}
-			//should try to change this n use .bcg==backgroundimage division instead
-            img{
-                position: absolute;
-                top:0;
-                left:0;
-                width:100%;
-                height: 100%;
-                -webkit-transform: scale(1.1, 1.3);
-                   -moz-transform: scale(1.1, 1.3);
-                    -ms-transform: scale(1.1, 1.3);
-                     -o-transform: scale(1.1, 1.3);
-                        transform: scale(1.1, 1.3);
-            }
-            &:hover{
-                .top-daily-description{
-                    bottom:0;
-                }
-            }
-    
-        }
-	}
-//description= name which comes up on hover
-	.top-daily-description{
-		transition:all 0.4s ease-in-out;
-		position:absolute;
-		background:transparentize($theme-color, 0.5);
-		width:100%;
-		left:0;
-		padding:20px;
-		color:$white;
-		font-size:1.5em;
-		text-transform: uppercase;
-		display: block;
-		bottom:-200px;
+
+a.btn {
+	width:auto;
+	padding: 15px;
+	@include br-md;
+	font-size: 1.3em;
+	font-weight: 600px;
+	&:before {
+		content: '';
+		@include br-md;
 	}
 }
-//wrapper for the services 
+
+.specials {
+	background:$nice-grey;
+}
+.specials-wrapper {
+	position: relative;
+	top:-50px;
+	.one-special {
+		background:$nice-grey;
+		@include br-md;
+		height: 300px;
+		width:200px;
+		position: relative;
+		transition:all 0.2s ease-in-out;
+		.special-img {
+			position: absolute;
+			top:0;
+			left:0;
+			width:100%;
+			height: 50%;
+			border-radius: 10px 10px 0 0;
+			img {
+				height: 150px;
+				border-radius: 10px 10px 0 0;
+				width: 100%;
+			}
+		}
+		.special-body {
+			position: absolute;
+			bottom:0;
+			padding: 20px;
+			left:0;
+			width: 100%;
+			height:150px;
+			background: $white;
+			border-radius: 0 0 10px 10px;
+			.special-title {
+				color:$orange;
+				text-align: left;
+				letter-spacing: 1px;
+				font-family: $merri;
+				font-weight: 600;
+				font-size:1.4em;
+			}
+			.special-text {
+				font-weight: 600;
+			}
+		}
+		&:hover {
+			cursor: pointer;
+			transform: scale(1.04);
+		}
+	}
+}
+
+.one {
+	
+	.one-special {
+		z-index: 2;
+		position: absolute;
+		top: 50%;
+		left:50%;
+		height: 300px;
+		width:200px;
+		transform: translate(-50%, -50%);
+		&:hover {
+			cursor: pointer;
+			transform: scale(1.04) translate(-50%, -50%);
+		}
+	}
+}
+.two-specials-wrapper {
+	width:100%;
+	&:nth-of-type(1) {
+		margin-bottom:30px;
+	}
+	.one-special {
+		&:nth-of-type(1) {
+			margin-right: auto;
+		}
+	}
+}
+.specials-hero {
+	display:grid;
+	align-content: center;
+	.specials-caption {
+		h1 {
+			color:$theme-color;
+			font-size: 3em;
+			text-align: left;
+			font-family: $merri;
+			font-weight: 900;
+		}
+	}
+	p {
+		font-size:1.7em;
+		font-weight: 600;
+	}
+}
+
 .services{
 	height: auto;
 	padding-top:10px;
 	background:$nice-grey;
 	text-align: center;
-	//style for each service
-	.service{
-		height: auto;
-		padding:20px;
-		color:$white;
-		font-size:1.5em;
+}
+.service-caption {
+	padding:50px;
+	text-align:center;
+	h1 {
+		width:50%;
+		margin:auto;
+		color:$theme-color;
+		font-size: 5em;
 		text-align: left;
-		border-radius: 15px 15px 15px 0;
-		cursor:pointer;
-		margin:20px;
-		background:$captions;
-		display: inline-block;
-		//opacity: 0;
-		&:before{
-			border-radius: 15px 15px 15px 0;
-		}
-	}
-	//services caption specific styling
-	.caption{
-		font-size: 2.5em;
+		font-family: $merri;
+		font-weight: 900;
 	}
 }
-//styling for team section
+.single-services {
+	padding:50px;
+}
+.service{
+	height: auto;
+	padding:10px;
+	text-align: left;
+	cursor:pointer;
+	display: inline-block;
+	h1 {
+		font-family: $merri;
+		font-weight:600;
+		font-size: 1.9em;
+		letter-spacing: 2px;
+		color: $orange;
+	}
+	p {
+		color:$black;
+		font-size:1.2em;
+	}
+}
 
 .team{
 	background:url("../../../assets/img/team-bg.jpg") no-repeat;
@@ -120,9 +166,7 @@
 		font-size: 2.5em;
 	}
 }
-//each team slide
 .team-member{
-	//specific styling of the image for big screens
 	@media screen and (min-width: 100px){
 		img{
 			display: block;
@@ -134,7 +178,69 @@
 		font-size: 1.5em;
 	}
 }
+@media screen and (max-width:900px) {
+	.specials {
+		display:grid;
+	}
+	.specials-wrapper {
+		top:0;
+		grid-row-start: 2;
+	}
+	.specials-hero {
+		grid-row-start: 1;
+		text-align: center;
+		padding: 30px;
+		.specials-caption {
+			h1 {
+				text-align: left;
+			}
+		}
+		p {
+			font-size: 1.4em;
+		}
+		a {
+			margin: auto;
+		}
+	}
+	.service-caption {
+		padding: 10px;
+		h1 {
+			width: 100%;
+			font-size: 3em;
+		}
+	}
+	.single-services {
+		padding: 10px;
+	}
+}
 
+@media screen and ( max-width: 600px) {
+	.two-specials-row {
+		max-width:100% !important;
+		margin: 0;
+		padding: 0;
+	}
+	.two-specials-wrapper {
+		margin: 0 !important;
+	}
+	.one-special {
+		margin:auto;
+		margin-bottom: 10px;
+	}
+	.one {
+		.one-special {
+			position: static;
+			transform: translate(0,0);
+			&:hover {
+				transform: translate(0,0) scale(1.04);
+			}
+		}
+	}
+	a.btn {
+		font-size:1em;
+		padding: 10px;
+	}
+}
 
 @keyframes fadeIn{
     0%{

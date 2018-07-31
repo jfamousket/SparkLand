@@ -1,51 +1,48 @@
-<div class="col-12 text-center main-header" parallax>
-  <div *ngIf="currentUrl">
-    <div class="bcg-home" style="background:url(../../../assets/img/main-header.jpg)" *ngIf="currentUrl.includes('/home')"></div>
-    <div class="bcg-menu" style="background:url(../../../assets/img/main-header.jpg)" *ngIf="currentUrl == '/about'"></div>
-    <div class="bcg-about" style="background:url(../../../assets/img/main-header.jpg)" *ngIf="currentUrl.includes('/menu')"></div>
-    <div class="bcg-contact" style="background:url(../../../assets/img/contact-img/main-header.jpg)" *ngIf="currentUrl == '/contact'"></div>
-  </div>
+<div class="col-12 text-center main-header">
+  <div class="bcg-home" style="background:url(../../../assets/img/main-header.jpg)"></div>
+
   <div class="small-menu-icon">
       <div class="bar"></div>
   </div>
+
   <nav class="navbar navbar-expand-lg">
-    <ul class="main-navigation mx-auto">
-      <li class="text-uppercase nav_links hvr-underline-from-center" [routerLinkActive] ="['current']"><a class="link" [routerLink]="['/home']">Home</a></li>
-      <li class="text-uppercase nav_links hvr-underline-from-center" [routerLinkActive] ="['current']"><a class="link" [routerLink] = "['/menu']">Menu</a></li>
-      <!-- <li class="text-uppercase nav_links hvr-underline-from-center" [routerLinkActive] ="['current']"><a class="link" [routerLink] = "['/gallery']">Gallery</a></li>  -->
-      <li class="text-uppercase nav_links hvr-underline-from-center" [routerLinkActive] ="['current']"><a class="link" [routerLink] = "['/about']">About</a></li>
-      <li class="text-uppercase nav_links hvr-underline-from-center" [routerLinkActive] ="['current']"><a class="link" [routerLink] = "['/contact']">Contact Us</a></li>
-      <li class="text-uppercase nav_links plate">
-        <a class="link" [routerLink] = "['/plate']">My Plate</a>
-        <span *ngIf="plateCount()"  class="badge bg-light text-theme badge-pill">{{ count }}</span>
-      </li>
-    </ul>
+    <div class="main-navigation row col-12">
+        <ul class="mx-auto">
+          <li class="hvr-underline-from-center" [routerLinkActive] ="['current']"><a class="link" [routerLink]="['/home']">Home</a></li>
+          <li class="hvr-underline-from-center" [routerLinkActive] ="['current']"><a class="link" [routerLink] = "['/menu']">Menu</a></li>
+          <li class="hvr-underline-from-center" [routerLinkActive] ="['current']"><a class="link" [routerLink] = "['/about']">About</a></li>
+          <li class="hvr-underline-from-center" [routerLinkActive] ="['current']"><a class="link" [routerLink] = "['/contact']">Contact Us</a></li>
+        </ul>
+    </div>
   </nav>
-  <div class="row hero">
-    <div class="col-lg-6 col-12 brandname">
-      <h1>Spark</h1>
-      <h1 class="text-theme">Land</h1>
+
+  <div class="hero">
+    <div class="col-12 brandname">
+      <h1 class="text-theme">Sparkland</h1>
+      <h2 class="text-sub">Restaurant</h2>
       <h2 class="text-white">Best Food | Best Cooks</h2>
     </div>
-    <div class="col-lg-6 col-12"></div>
   </div>
+
 </div>
 
 <!-- Scroll-Header -->
 
 <div class="scroll-header col-12 clearfix row shadow-lg m-0">
   <div class="col-3 float-left scroll-brand">Spark <span class="caption">Land</span></div>
-  <div class="col-8">
-    <ul class="scroll-links clearfix text-right">
-      <li class="text-uppercase hvr-underline-from-center" [routerLinkActive] ="['current']"><a class="link" [routerLink]="['/home']">Home</a></li>
-      <li class="text-uppercase hvr-underline-from-center" [routerLinkActive] ="['current']"><a class="link" [routerLink] = "['/menu']">Menu</a></li>
-      <!-- <li class="text-uppercase hvr-underline-from-center" [routerLinkActive] ="['current']"><a class="link" [routerLink] = "['/gallery']">Gallery</a></li>  -->
-      <li class="text-uppercase hvr-underline-from-center" [routerLinkActive] ="['current']"><a class="link" [routerLink] = "['/about']">About</a></li>
-      <li class="text-uppercase hvr-underline-from-center" [routerLinkActive] ="['current']"><a class="link" [routerLink] = "['/contact']">Contact Us</a></li>
-      <li class="text-uppercase sc-plate">
-        <a class="link" [routerLink] = "['/plate']">My Plate</a>
-        <span *ngIf="plateCount()" class="badge text-white theme-bg badge-pill">{{ count }}</span>
-      </li>
-    </ul>
+  <ul class="scroll-links clearfix text-right col-8">
+    <li class="hvr-underline-from-center" [routerLinkActive] ="['current']"><a class="link" [routerLink]="['/home']">Home</a></li>
+    <li class="hvr-underline-from-center" [routerLinkActive] ="['current']"><a class="link" [routerLink] = "['/menu']">Menu</a></li>
+    <li class="hvr-underline-from-center" [routerLinkActive] ="['current']"><a class="link" [routerLink] = "['/about']">About</a></li>
+    <li class="hvr-underline-from-center" [routerLinkActive] ="['current']"><a class="link" [routerLink] = "['/contact']">Contact Us</a></li>
+  </ul>
+</div>
+
+<div class="fixed-plate">
+  <div class="plate shadow hvr-bounce-in" [routerLink] = "['/plate']">
+    <div class="content">
+      <span *ngIf="plateCount()"class="text-white font-weight-bold">#{{ count }}</span>
+      <h2 class="text-white">Plate</h2>
+    </div>
   </div>
 </div>

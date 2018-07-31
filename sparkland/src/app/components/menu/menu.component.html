@@ -14,7 +14,7 @@
   </div>
   <div class="intro text-center col-12" *ngIf="!noResult">
     <h1 class="text-theme">Our Yummy Menu For All Your Needs</h1>
-    <small class="small-md caption" >Your plate is on the navigation bar at the top, click on it to complete your order</small>
+    <small class="small-md text-sub" >Your plate is at the bottom-right corner, click on it to complete your order</small>
   </div>
   
   <!--  Menu Items  -->
@@ -26,8 +26,8 @@
       </div>
     </div>
     <div class="errors text-center">
-      <h1 class="w-100 text-center text-theme search-fail my-5" *ngIf="noResult">Sorry We Don't Have "{{searchValue}}" On Our Menu</h1>
-      <h1 class="w-100 text-center text-theme search-fail my-5" *ngIf="emptyMenu">{{emptyMenu}}</h1>
+      <h1 class="w-100 text-center text-theme search-fail py-5 my-0" *ngIf="noResult">Sorry We Don't Have "{{searchValue}}" On Our Menu</h1>
+      <h1 class="w-100 text-center text-theme search-fail py-5 my-0" *ngIf="emptyMenu">{{emptyMenu}}</h1>
     </div>
   </div>
 

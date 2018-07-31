@@ -1,35 +1,56 @@
 @import '../../../../variables';
 @import '../../../../mixins';
 
-.category{
-	height: auto;
-	overflow: hidden;
-	padding:30px;
-	background: url(../../../../assets/img/food.jpg) no-repeat;
-	background-size: 400px 300px !important;
-	margin:10px 20px;
-	border-radius: 20px 20px 30px 0;
+.categories {
+	padding:20px 100px;
+}
+.card {
+	border:none;
+	margin: 0 20px;
+	padding:0;
 	cursor: pointer;
-	position: relative;
-	h2{
-		font-size:2em;
-		color:$white;
+	@include br-md;
+	.card-title{
+		font-family: $merri;
+		font-weight: 900;
+		color:$theme-color;
+		letter-spacing: 1px;
 		text-transform: uppercase;
-		font-weight: bolder;
-		z-index: 999;
-
 	}
-	&:before{
-		border-radius: 20px 20px 20px 0;
-		opacity: 0.9;
+	fa-icon {
+		display:none;
 	}
-	&:nth-of-type(1){
-		background: url(../../../../assets/img/menu-img/breakfast.jpg) no-repeat;
-
+	small {
+		font-size:.9em;
+		opacity:.6;
+		letter-spacing: 2px;
 	}
-	&:nth-of-type(2){
-		background: url(../../../../assets/img/menu-img/main-dishes.jpg) no-repeat;
-
+	.card-img-top {
+		position:relative;
+		height:70px;
+		overflow: hidden;
+		img {
+			position: absolute;
+			top:0;
+			left:0;
+			height: 180%;
+			width:100%;
+			border-radius: 10px 10px 0 0;
+		}
+		&:after {
+			position: absolute;
+			border-radius: 10px 10px 0 0;
+			top:0;
+			z-index: 2;
+			left:0;
+			width:100%;
+			height: 100%;
+			content:'';
+			background:transparentize($color: $theme-color, $amount: 0.8)
+		}
+	}
+	&:hover {
+		transform: scale(1.03);
 	}
 }
 
@@ -46,8 +67,41 @@
 
 /***** Media ****/
 
-@media screen and (max-width:700px) {
-	.category{
-		background-size: 500px 500px !important;
+@media screen and (max-width:1000px) {
+	fa-icon {
+		display:block !important;
+	}
+	small, .card-title, .card-img-top{
+		display:none;
+	}
+	.categories {
+		text-align: center;
+		display: flex;
+		justify-content:space-around;
+		padding: 10px;
+	}
+	.card {
+		display: table;
+		padding: 0px;
+		height: 70px;
+		max-width:70px;
+		border-radius: 50%;
+		@media screen and (max-width:500px) {
+			height: 50px;
+			max-width:50px;
+			margin:5px;
+			fa-icon {
+				padding:10px;
+			}
+			
+		}
+		&:hover{
+			transform: scale(1.08);
+		}
+	}
+	.card-body {
+		display:table-cell;
+		vertical-align: middle;
+		padding:0;
 	}
 }

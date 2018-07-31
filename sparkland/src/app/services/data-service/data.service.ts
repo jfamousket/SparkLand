@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, URLSearchParams } from '@angular/http';
+import { Http } from '@angular/http';
 import { catchError, map } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { AppError } from '../../shared/app-error';
@@ -22,8 +22,8 @@ export class DataService {
                   catchError(this.handleError));
   }
 
-  sendData(url, id, data?) {
-    return this.http.put(url, {id, data})
+  sendData(url, data?) {
+    return this.http.post(url, { data})
             .pipe(catchError(this.handleError));
   }
 

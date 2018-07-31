@@ -1,5 +1,9 @@
 @import '../../../variables';
 @import '../../../mixins';
+
+.section {
+	height: auto;
+}
 .contact{
 	height: auto;
 	margin: auto;
@@ -12,7 +16,7 @@
 	.contact-type{
 		height: auto;
 		display: inline-block;
-		@include br-sm;
+		@include br-md;
 		background:$white;
 		padding: 10px 20px;
 		color:$theme-color;
@@ -21,5 +25,26 @@
 			background:$theme-color;
 			color:$white;
 		}
+	}
+}
+.text-group {
+	margin: 10px auto;
+}
+
+.title {
+	font-family: $merri;
+	font-weight: 500;
+	padding:10px;
+	text-align: center;
+	margin:10px auto;
+}
+@media screen and (max-width:900px) {
+	.contact-type {
+		margin: 20px auto;
+		padding: 10px !important;
+		font-size: 1.2em !important;
+	}
+	.text-group {
+		margin: 5px auto;
 	}
 }

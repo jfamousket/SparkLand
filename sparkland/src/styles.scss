@@ -19,6 +19,11 @@ ul{
 	margin:0;
 	padding:0;
 }
+.disabled {
+	cursor: not-allowed;
+	background:$hcaptions !important;
+	opacity:.4!important;
+}
 .theme-bg{
 	background:$theme-color !important;
 }
@@ -53,6 +58,9 @@ a{
 }
 .text-light-theme{
 	color:$light-theme-color;
+}
+.text-sub{
+	color:$orange;
 }
 .caption{
 	color:$captions;

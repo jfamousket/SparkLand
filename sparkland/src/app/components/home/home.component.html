@@ -1,52 +1,99 @@
 <div class="container-for-all-pages">
-  <div class="daily-menu-wrapper col-12">
-    <h1 class="caption fadeIn">Our Special Dishes</h1>
-    <div class="row mx-auto">
-    <div class="top-daily-wrapper col-12 col-lg-3 col-md-6 col-sm-6 animFadeInDown">
-      <div class="top-daily shadow-lg">
-        <img src="assets/img/top-dish1.jpg" alt="">
-        <span class="top-daily-description">
-          Corn Fufu/Vegetable
-        </span>
+  <div class="row specials">
+    <div class="specials-wrapper col-12 col-lg-6">
+      <div class="col-9 mx-auto two-specials-row">
+        <div class="two-specials-wrapper row">
+          <div class="one-special shadow">
+            <div class="special-img">
+              <img src="../../../assets/img/top-dish1.jpg">
+            </div>
+            <div class="special-body">
+              <h1 class="special-title">Achu Soup</h1>
+              <p class="special-text">Lorem ipsum dolor sit amet consectetur.</p>
+            </div>
+          </div>
+          <div class="one-special shadow">
+            <div class="special-img">
+              <img src="../../../assets/img/top-dish2.jpg">
+            </div>
+            <div class="special-body">
+              <h1 class="special-title">Eru</h1>
+              <p class="special-text">Lorem ipsum dolor sit amet consectetur.</p>
+            </div>
+          </div>
+        </div>
+      </div> 
+      <div class="one">
+        <div class="one-special shadow">
+          <div class="special-img">
+            <img src="../../../assets/img/top-dish3.jpg">
+          </div>
+          <div class="special-body">
+            <h1 class="special-title">Chicken</h1>
+            <p class="special-text">Lorem ipsum dolor sit amet consectetur.</p>
+          </div>
+        </div>
       </div>
+      <div class="col-9 mx-auto two-specials-row">
+        <div class="two-specials-wrapper row">
+          <div class="one-special shadow">
+            <div class="special-img">
+              <img src="../../../assets/img/top-dish4.jpg">
+            </div>
+            <div class="special-body">
+              <h1 class="special-title">Rice & Beans</h1>
+              <p class="special-text">Lorem ipsum dolor sit amet consectetur.</p>
+            </div>
+          </div>
+          <div class="one-special shadow">
+            <div class="special-img">
+              <img src="../../../assets/img/top-dish1.jpg">          </div>
+            <div class="special-body">
+              <h1 class="special-title">Roasted Fish</h1>
+              <p class="special-text">Lorem ipsum dolor sit amet consectetur.</p>
+            </div>
+          </div>
+        </div>
+      </div> 
     </div>
-
-      <div class="top-daily-wrapper col-12 col-lg-3 col-md-6 col-sm-6 animFadeInDown">
-        <div class="top-daily shadow-lg">
-          <img src="assets/img/top-dish2.jpg" alt="">
-          <span class="top-daily-description">
-            Achu
-          </span>
-        </div>
-      </div>
-
-      <div class="top-daily-wrapper col-12 col-lg-3 col-md-6 col-sm-6 animFadeInDown">
-        <div class="top-daily shadow-lg">
-          <img src="assets/img/top-dish3.jpg" alt="">
-          <span class="top-daily-description">
-            Ekwang
-          </span>
-        </div>
-      </div>
-      
-      <div class="top-daily-wrapper col-12 col-lg-3 col-md-6 col-sm-6 animFadeInDown" [routerLink] ="['/menu']">
-        <div class="top-daily shadow-lg text-left px-4 hvr-sweep-to-right">
-          <span class="text-white">SEE OUR FULL MENU</span>
-        </div>
-      </div>
-      
+    <div class="col-12 col-lg-6 specials-hero">
+        <div class="specials-caption">
+            <h1><fa-icon [icon] ="['fa', 'quote-left']"></fa-icon></h1>
+            <h1>Specials On Our Menu</h1>
+          </div>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et numquam in ratione.</p>
+      <a [routerLink] ="['/menu']" class="btn hvr-sweep-to-right shadow col-12 col-md-5">View Full Menu</a>
     </div>
   </div>
-
+  
   <!-- Services Section -->
 
-  <section class="services">
-    <h1 class="caption" id="serviceAnimationTrigger" animFadeInDown>Our Services At A Glance</h1>
-    <div class="service shadow-sm col-11 mx-sm-auto col-md-5 mx-md-3 col-lg-4 hvr-sweep-to-top">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequat ante ac congue. Quisque porttitor porttitor tempus.</div>
-    <div class="service shadow-sm col-11 mx-sm-auto col-md-5 mx-md-3 col-lg-4 hvr-sweep-to-top">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequat ante ac congue. Quisque porttitor porttitor tempus.</div>
-    <div class="service shadow-sm col-11 mx-sm-auto col-md-5 mx-md-3 col-lg-4 hvr-sweep-to-top">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequat ante ac congue. Quisque porttitor porttitor tempus.</div>
-    <div class="service shadow-sm col-11 mx-sm-auto col-md-5 mx-md-3 col-lg-4 hvr-sweep-to-top">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequat ante ac congue. Quisque porttitor porttitor tempus.</div><br>
-    <a [routerLink] ="['/menu']" class="hvr-sweep-to-right my-4 btn">SEE OUR FULL MENU AND PLACE QUICK ORDERS</a>	
+  <section class="services row shadow-none col-12 mx-auto col-lg-10">
+    <div class="col-12 col-lg-6 service-caption">
+      <h1><fa-icon [icon] ="['fa', 'quote-left']"></fa-icon></h1>
+      <h1>You Have To Like Us</h1>
+    </div>
+    <div class="col-12 col-lg-6 single-services">
+        <div class="service col-12">
+          <h1>Service</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla</p>
+          </div>
+        <div class="service col-12">
+            <h1>Service</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla</p>
+          </div>
+        <div class="service col-12">
+          <h1>Service</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla</p>
+          </div>
+        <div class="service col-12">
+          <h1>Service</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla</p>
+          </div>    
+    </div>
+    <div class="col-12 text-center">
+        <a [routerLink] ="['/menu']" class="hvr-sweep-to-right my-4 btn shadow">View Full Menu</a>	
+    </div>
   </section>
 
   <!-- Team Section -->

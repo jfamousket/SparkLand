@@ -22,7 +22,8 @@ import { ItemCardComponent } from './components/item-card/item-card.component';
 import { CategoryComponent } from './components/menu/category/category.component';
 import { SearchFormComponent } from './components/search-form/search-form.component';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faFacebook, faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { faSearch, faMinus, faPlus, faPhone, faEnvelope, faLocationArrow, faStreetView, faCar, faQuoteLeft, faCheckCircle} from '@fortawesome/free-solid-svg-icons';
 
 import { ItemService } from './services/item-service/item.service';
 import { FilterService } from './services/filter-service/filter.service';
@@ -34,8 +35,11 @@ import { PlateComponent } from './components/plate/plate.component';
 import { ItemQtyComponent } from './components/item-qty/item-qty.component';
 import { CheckOutComponent } from './components/check-out/check-out.component';
 import { OrderService } from './services/order-service/order.service';
+import { PlateSummaryComponent } from './components/check-out/plate-summary/plate-summary.component';
+import { AddBtnComponent } from './components/add-btn/add-btn.component';
 
-library.add(faFacebook, faInstagram)
+library.add(faFacebook, faInstagram, faSearch, faMinus, faPlus, faPhone, 
+            faEnvelope, faWhatsapp, faLocationArrow, faStreetView, faCar, faQuoteLeft, faCheckCircle)
 
 @NgModule({
   declarations: [
@@ -55,6 +59,8 @@ library.add(faFacebook, faInstagram)
     PlateComponent,
     ItemQtyComponent,
     CheckOutComponent,
+    PlateSummaryComponent,
+    AddBtnComponent,
   ],
   imports: [
     BrowserModule,

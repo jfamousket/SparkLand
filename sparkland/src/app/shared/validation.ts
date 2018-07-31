@@ -1,29 +1,22 @@
-import { FormControl } from '@angular/forms';
+import { FormControl, ValidationErrors, AbstractControl } from '@angular/forms';
+   
+function checkStart(control: AbstractControl): ValidationErrors | null {
+    const startValueError = !control.value.startsWith('6');
+    return startValueError ? {'startValueError': true } : null;
+}
+function checkNum(control: AbstractControl): ValidationErrors | null {
+    const checkNumError = (isNaN(control.value) || (control.value as string).includes('.'));
+    return checkNumError ? {'checkNumError': true } : null;
+}
+function checkBadWords(control: FormControl): ValidationErrors | null {
 
-function checkPhone(phone: FormControl) {
+    const checkBadWordsError = control.value.match(/<|[.,;"'{}|`!^*_+@#$%&()1234567890]|script|\|>/gi, '');
+    return checkBadWordsError ? {'checkBadWordsError': true } : null;
+}
+function checkWordStart(control: FormControl): ValidationErrors | null {
+    const checkWordStartError = control.value.startsWith(' ');
+    return checkWordStartError ? {'checkWordStartError': true } : null;
+}
 
-    if (!phone.value.startsWith('6') && phone.value !== '') {
-        return{
-            startValueError : {
-                phone: phone,
-            }
-        };
-    }
+export { checkStart, checkNum, checkBadWords, checkWordStart}
 
-    if (isNaN(phone.value) && phone.value !== '') {
-        return {
-            integerError: {
-                phone: phone
-            }
-        };
-    }
-    return null;
-  }
-  function checkBadWords(control: FormControl) {
-    if (control) {
-        control.value.replace(/<|script|\|>/gi, '');
-        return control;
-    }
-      return control;
-  }
-export { checkPhone, checkBadWords };

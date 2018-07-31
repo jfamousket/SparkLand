@@ -3,7 +3,7 @@
     <h1 class="text-center mb-0 pt-5 text-theme">Send Your Request, Complains, And Questions To Us </h1>
     <small class="text-center caption d-block small-md">Please fill in accurately for quick replies, we typically reply in 24 hours</small>
     
-    <form class="contact-form col-12 col-lg-6 p-md-5 p-lg-5 mx-auto shadow-sm animFadeInDown" novalidate (ngSubmit) = "sendRequest(contactForm.value)" [formGroup] = "contactForm">
+    <form class="contact-form col-12 col-lg-6 p-md-5 p-lg-5 p-3 mx-auto shadow animFadeInDown" novalidate (ngSubmit) = "sendRequest(contactForm.value)" [formGroup] = "contactForm">
       <fieldset formGroupName = "name">
         <div class="form-group">
           <label for="title">Title</label>
