@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
-import { MenuItem } from '../../../shared/menu-item';
-import { ItemFormService } from '../../../services/item-form/item-form.service';
+import { MenuItem } from 'shared/models/menu-item';
+import { ItemFormService } from 'services/item-form/item-form.service';
 
 @Component({
   selector: 'buy-form',

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { PlateService } from '../../services/plate-service/plate.service';
+import { PlateService } from 'services/plate-service/plate.service';
 import { map } from 'rxjs/operators';
-import { Plate } from '../../shared/plate';
+import { Plate } from 'shared/models/plate';
 
 @Component({
   selector: 'app-plate',

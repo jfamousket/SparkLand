@@ -3,9 +3,9 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { HttpModule} from '@angular/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
-import { AppErrorHandler } from './shared/error-handler';
+import { AppErrorHandler } from 'shared/models/error-handler';
 import { OwlModule } from 'ngx-owl-carousel';
-import { InterceptorModule } from './shared/interceptor.module';
+import { InterceptorModule } from 'shared/models/interceptor.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppComponent } from './app.component';

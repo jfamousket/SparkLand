@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import * as $ from 'jquery';
-import { PlateService } from '../../services/plate-service/plate.service';
+import { PlateService } from 'services/plate-service/plate.service';
 import { Observable } from 'rxjs';
-import { Plate } from '../../shared/plate';
+import { Plate } from 'shared/models/plate';
 import { map } from 'rxjs/operators';
 
 

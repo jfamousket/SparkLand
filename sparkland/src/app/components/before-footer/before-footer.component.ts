@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-// import * as ScrollMagic from 'ScrollMagic';
-// import 'ScrollMagic/scrollmagic/minified/plugins/debug.addIndicators.min.js';
 import * as $ from 'jquery';
 
 @Component({

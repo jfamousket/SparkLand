@@ -1,10 +1,10 @@
 import { Component, OnInit, OnDestroy, OnChanges } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { PlateService } from '../../services/plate-service/plate.service';
+import { PlateService } from 'services/plate-service/plate.service';
 import { map, switchMap, filter } from 'rxjs/operators';
-import { Plate } from '../../shared/plate';
+import { Plate } from 'shared/models/plate';
 import { Subscription } from 'rxjs';
-import { DataService } from '../../services/data-service/data.service';
+import { DataService } from 'services/data-service/data.service';
 
 @Component({
   selector: 'app-check-out',
