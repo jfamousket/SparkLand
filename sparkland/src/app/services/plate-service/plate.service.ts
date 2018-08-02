@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { MenuItem } from '../../shared/menu-item';
-import { DataService } from '../data-service/data.service';
+import { MenuItem } from 'models/shared/menu-item';
+import { DataService } from 'services/data-service/data.service';
 import { Http } from '@angular/http';
 import { map, catchError } from 'rxjs/operators';
-import { PlateItem } from '../../shared/plate-item';
+import { PlateItem } from 'models/shared/plate-item';
 import { Observable } from 'rxjs';
-import { Plate } from '../../shared/plate';
+import { Plate } from 'models/shared/plate';
 
 @Injectable({
   providedIn: 'root'

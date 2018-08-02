@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 
 import * as $ from 'jquery';
-import { SendRequestService } from '../../services/send-request/send-request.service';
+import { SendRequestService } from 'services/send-request/send-request.service';
 
 @Component({
   selector: 'app-contact',

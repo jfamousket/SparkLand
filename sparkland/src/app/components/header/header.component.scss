@@ -105,7 +105,8 @@
 	width:100%;
 	transition:all 0.4s ease-in-out;
 	top:-100px;
-	background:transparentize($theme-color, 0);
+	background:$alt-theme-color;
+	background: $theme-color;
 	padding:0px;
 	.current{
 		&::after{
@@ -205,7 +206,7 @@
 		left:-500px;
 		position: fixed;
 		transition:0.5s ease-in-out;
-		background:transparentize($light-theme-color, 0.2);
+		background:transparentize($alt-light-theme-color, 0.2);
 		.main-navigation{
 			padding-top:50px;
 			position: absolute;

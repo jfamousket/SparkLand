@@ -1,5 +1,5 @@
 import { PlateItem } from './plate-item';
-import { PlateService } from '../services/plate-service/plate.service';
+import { PlateService } from 'services/plate-service/plate.service';
 import { MenuItem } from './menu-item';
 import { Observable } from 'rxjs';
 

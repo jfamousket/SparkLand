@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PlateService } from '../../services/plate-service/plate.service';
-import { Plate } from '../../shared/plate';
+import { PlateService } from 'services/plate-service/plate.service';
+import { Plate } from 'models/shared/plate';
 import { map } from 'rxjs/operators';
-import { ItemFormService } from '../../services/item-form/item-form.service';
-import { MenuItem } from '../../shared/menu-item';
+import { ItemFormService } from 'services/item-form/item-form.service';
+import { MenuItem } from 'models/shared/menu-item';
 
 @Component({
   selector: 'add-btn',

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { MenuItem } from '../../shared/menu-item';
-import { ItemService } from '../item-service/item.service';
+import { MenuItem } from 'models/shared/menu-item';
+import { ItemService } from 'services/item-service/item.service';
 
 @Injectable({
   providedIn: 'root'

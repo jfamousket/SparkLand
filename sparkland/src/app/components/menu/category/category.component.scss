@@ -46,7 +46,7 @@
 			width:100%;
 			height: 100%;
 			content:'';
-			background:transparentize($color: $theme-color, $amount: 0.8)
+			background:transparentize($color: $alt-theme-color, $amount: 0.8)
 		}
 	}
 	&:hover {
