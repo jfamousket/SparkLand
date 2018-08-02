@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { DataService } from '../data-service/data.service';
+import { DataService } from 'services/data-service/data.service';
 
 
 @Injectable({

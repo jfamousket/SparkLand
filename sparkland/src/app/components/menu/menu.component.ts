@@ -1,11 +1,11 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ItemService } from '../../services/item-service/item.service';
-import { MenuItem } from '../../shared/menu-item';
+import { ItemService } from 'services/item-service/item.service';
+import { MenuItem } from 'models/shared/menu-item';
 import { ActivatedRoute } from '@angular/router';
-import { FilterService } from '../../services/filter-service/filter.service';
+import { FilterService } from 'services/filter-service/filter.service';
 import { Http } from '@angular/http';
-import { AppError, MenuError } from '../../shared/app-error';
-import { NotFoundError } from '../../shared/not-found';
+import { AppError, MenuError } from 'models/shared/app-error';
+import { NotFoundError } from 'models/shared/not-found';
 import { throwError, Subscription } from 'rxjs';
 
 @Component({

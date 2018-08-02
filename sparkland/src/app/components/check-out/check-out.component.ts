@@ -1,12 +1,12 @@
 import { Component, OnInit, OnDestroy, OnChanges } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { PlateService } from '../../services/plate-service/plate.service';
+import { PlateService } from 'services/plate-service/plate.service';
 import { map, switchMap, filter } from 'rxjs/operators';
-import { Plate } from '../../shared/plate';
+import { Plate } from 'models/shared/plate';
 import { Subscription } from 'rxjs';
-import { DataService } from '../../services/data-service/data.service';
-import { OrderService } from '../../services/order-service/order.service';
-import { checkNum, checkStart, checkBadWords, checkWordStart } from '../../shared/validation';
+import { DataService } from 'services/data-service/data.service';
+import { OrderService } from 'services/order-service/order.service';
+import { checkNum, checkStart, checkBadWords, checkWordStart } from '../../models/shared/validation';
 
 @Component({
   selector: 'check-out',

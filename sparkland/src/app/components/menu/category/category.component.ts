@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ItemService } from '../../../services/item-service/item.service';
+import { ItemService } from 'services/item-service/item.service';
 import { distinctUntilChanged } from 'rxjs/operators'
 
 @Component({

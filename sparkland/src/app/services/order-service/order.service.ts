@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { DataService } from '../data-service/data.service';
-import { PlateService } from '../plate-service/plate.service';
+import { DataService } from 'services/data-service/data.service';
+import { PlateService } from 'services/plate-service/plate.service';
 
 @Injectable({
   providedIn: 'root'

@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { catchError, map } from 'rxjs/operators';
 import { throwError } from 'rxjs';
-import { AppError } from '../../shared/app-error';
-import { NotFoundError } from '../../shared/not-found';
-import { BadInput } from '../../shared/bad-input';
+import { AppError } from 'models/shared/app-error';
+import { NotFoundError } from 'models/shared/not-found';
+import { BadInput } from 'models/shared/bad-input';
 
 @Injectable({
   providedIn: 'root'

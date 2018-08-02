@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { FilterService } from '../../services/filter-service/filter.service';
+import { FilterService } from 'services/filter-service/filter.service';
 
 @Component({
   selector: 'search-form',

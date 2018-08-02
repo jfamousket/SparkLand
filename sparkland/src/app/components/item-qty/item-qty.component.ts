@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
-import { MenuItem } from '../../shared/menu-item';
-import { PlateService } from '../../services/plate-service/plate.service';
+import { MenuItem } from 'models/shared/menu-item';
+import { PlateService } from 'services/plate-service/plate.service';
 import { Subscription } from 'rxjs';
-import { Plate } from '../../shared/plate';
+import { Plate } from 'models/shared/plate';
 import { map } from 'rxjs/operators';
 
 @Component({

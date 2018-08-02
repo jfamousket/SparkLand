@@ -12,7 +12,6 @@ a.btn {
 		@include br-md;
 	}
 }
-
 .specials {
 	background:$nice-grey;
 }
@@ -99,7 +98,6 @@ a.btn {
 	align-content: center;
 	.specials-caption {
 		h1 {
-			color:$theme-color;
 			font-size: 3em;
 			text-align: left;
 			font-family: $merri;
@@ -124,7 +122,6 @@ a.btn {
 	h1 {
 		width:50%;
 		margin:auto;
-		color:$theme-color;
 		font-size: 5em;
 		text-align: left;
 		font-family: $merri;
