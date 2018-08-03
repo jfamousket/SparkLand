@@ -21,7 +21,7 @@ form{
     background:$white;
     transition:all 0.5s ease-in-out;
     opacity:1;
-    z-index: 1;
+    z-index: 999;
     .complement-item{
         .complement-image{
         text-align:center;
@@ -98,7 +98,7 @@ form{
         .show-option{
             position: absolute;
             right:0;
-            margin-right:5%;
+            margin-right:80px;
             .btn{
                 font-size:0.8em;
             }

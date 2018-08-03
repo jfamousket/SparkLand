@@ -1,60 +1,57 @@
-<div class="container-for-all-pages">
-  <section *ngIf="!success">
-      <div class="col-12" *ngIf="getPlate()">
-          <plate-summary [plate] ="plate"></plate-summary>
-        </div>
-        <div class="px-3">
-          <form class="col-12 my-0 p-5" [formGroup] = "checkOut" novalidate>
-            <div class="formGroup">
-              <label for="name">Name</label>
-              <input type="text" name="name" class="formControl" formControlName = "name">
-              <div class="errors" *ngIf="name.touched && name.invalid">
-                <small *ngIf="name.errors.required" class="text-danger">A name is required</small>
-                <small *ngIf="name.errors.checkBadWordsError" class="text-danger">Your name contains some invalid characters</small>
-                <small *ngIf="name.errors.checkWordStartError" class="text-danger">A name cannot start with a space</small>
-              </div>
-            </div>
-            <div class="formGroup">    
-              <label for="telephone">Telephone</label>
-              <input type="text" name="telephone" class="formControl" formControlName = "telephone">
-              <div class="errors" *ngIf="telephone.touched && telephone.invalid">
-                <small *ngIf="telephone.errors.required" class="text-danger">A phone number is required</small>
-                <small *ngIf="telephone.errors.maxlength" class="text-danger">Phone number cannot be greater than 9</small>
-                <small *ngIf="telephone.errors.minlength" class="text-danger">Phone number cannot be less than 9</small>
-                <small *ngIf="telephone.errors.startValueError" class="text-danger">Phone number must begin with 6</small>
-                <small *ngIf="telephone.errors.checkNumError" class="text-danger">Phone number must be only numbers</small>
-              </div>          
-            </div>
-            
-            <div class="formGroup">
-              <label for="residence">Residence</label>
-              <input type="text" name="residence" class="formControl" formControlName = "residence">
-              <div class="errors" *ngIf="residence.touched && residence.invalid">
-                <small *ngIf="residence.errors.required" class="text-danger">A location is required</small>
-                <small *ngIf="residence.errors.checkWordStartError" class="text-danger">A name cannot start with a space</small>
-              </div>
-            </div>
-            <div class="clearfix">
-                <button type="submit" class="w-100 shadow btn" [class.disabled] = "checkOut.invalid" [class.hvr-sweep-to-right] = "checkOut.valid" (click)="placeOrder()" [disabled] = "checkOut.invalid">Place Order</button>
-                <div class="errors" *ngIf="checkOut.touched && checkOut.invalid">
-                  <small class="text-danger">Complete the form before you can submit</small>
-                </div>
-            </div>
-          </form>
-      </div>
-  </section>
-
-  <section *ngIf = "success">
-    <div class="success">
-      <div class="success-center">
-        <fa-icon [icon] = "['fa', 'check-circle']" class="success-icon"></fa-icon>
-        <h1 class="font-weight-bold my-4">{{success}}</h1>
-        <h2>The tracking for your order is <b>"{{orderId}}"</b></h2>
-        <h2>Present it to any personnel in SparkLand to get your order</h2>
-        <h2 class="font-weight-bold my-4 text-theme">Thanks for dining with SparkLand</h2>
-        <a [routerLink] = "['/menu']" class="btn hvr-sweep-to-right">Back To Menu</a>
-      </div>
+<section *ngIf="!success">
+  <div class="col-12" *ngIf="getPlate()">
+      <plate-summary [plate] ="plate"></plate-summary>
     </div>
-  </section>
+    <div class="px-3">
+      <form class="col-12 my-0 p-lg-5 p-4" [formGroup] = "checkOut" novalidate>
+        <div class="formGroup">
+          <label for="name">Name</label>
+          <input type="text" name="name" class="formControl" formControlName = "name">
+          <div class="errors" *ngIf="name.touched && name.invalid">
+            <small *ngIf="name.errors.required" class="text-danger">A name is required</small>
+            <small *ngIf="name.errors.checkBadWordsError" class="text-danger">Your name contains some invalid characters</small>
+            <small *ngIf="name.errors.checkWordStartError" class="text-danger">A name cannot start with a space</small>
+          </div>
+        </div>
+        <div class="formGroup">    
+          <label for="telephone">Telephone</label>
+          <input type="text" name="telephone" class="formControl" formControlName = "telephone">
+          <div class="errors" *ngIf="telephone.touched && telephone.invalid">
+            <small *ngIf="telephone.errors.required" class="text-danger">A phone number is required</small>
+            <small *ngIf="telephone.errors.maxlength" class="text-danger">Phone number cannot be greater than 9</small>
+            <small *ngIf="telephone.errors.minlength" class="text-danger">Phone number cannot be less than 9</small>
+            <small *ngIf="telephone.errors.startValueError" class="text-danger">Phone number must begin with 6</small>
+            <small *ngIf="telephone.errors.checkNumError" class="text-danger">Phone number must be only numbers</small>
+          </div>          
+        </div>
+        
+        <div class="formGroup">
+          <label for="residence">Residence</label>
+          <input type="text" name="residence" class="formControl" formControlName = "residence">
+          <div class="errors" *ngIf="residence.touched && residence.invalid">
+            <small *ngIf="residence.errors.required" class="text-danger">A location is required</small>
+            <small *ngIf="residence.errors.checkWordStartError" class="text-danger">A name cannot start with a space</small>
+          </div>
+        </div>
+        <div class="clearfix">
+            <button type="submit" class="w-100 shadow btn" [class.disabled] = "checkOut.invalid" [class.hvr-sweep-to-right] = "checkOut.valid" (click)="placeOrder()" [disabled] = "checkOut.invalid">Place Order</button>
+            <div class="errors" *ngIf="checkOut.touched && checkOut.invalid">
+              <small class="text-danger">Complete the form before you can submit</small>
+            </div>
+        </div>
+      </form>
+    </div>
+</section>
 
-</div>
+<section *ngIf = "success">
+  <div class="success">
+    <div class="success-center">
+      <fa-icon [icon] = "['fa', 'check-circle']" class="success-icon"></fa-icon>
+      <h1 class="font-weight-bold my-4">{{success}}</h1>
+      <h2>The tracking for your order is <b>"{{orderId}}"</b></h2>
+      <h2>Present it to any personnel in SparkLand to get your order</h2>
+      <h2 class="font-weight-bold my-4 text-theme">Thanks for dining with SparkLand</h2>
+      <a [routerLink] = "['/menu']" class="btn hvr-sweep-to-right">Back To Menu</a>
+    </div>
+  </div>
+</section>

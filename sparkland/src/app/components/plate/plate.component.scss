@@ -59,3 +59,29 @@ section {
         @include br-md;
     }
 }
+
+@media screen and (max-width:600px) {
+    section {
+        padding: 0!important;
+    }
+    table {
+        width:80%;
+        margin:0 important;
+        padding: 0 important;
+    }
+    tr {
+        width:100%;
+        margin: 0;
+        padding:0;
+    }
+    .it-qty,.it-name,.it-price {
+        font-size: 3.5vw !important;
+    }
+    .it-image {
+        img{
+            padding:10px;
+            height: 50px;
+            width: 50px;
+        }
+    }
+}
