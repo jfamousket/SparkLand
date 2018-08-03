@@ -1,12 +1,12 @@
 <div class = "container-for-all-pages">
   <section class="col-12">
-    <h1 class ="text-theme text-center p-lg-4 p-2">Edit Items On Your Plate And Check Out</h1>
+    <h1 class ="text-theme text-center p-lg-4 p-0">Edit Items On Your Plate And Check Out</h1>
     <ng-container *ngIf = "getPlate()">
       <div class="row">
-        <div class="col-12 col-lg-7 col-md-10 mx-auto">
-          <table class="table plate-details" *ngFor = "let item of plate.items, let i = index">
+        <div class="col-12 col-lg-7 col-md-10 mx-auto p-2 p-lg-3">
+          <table class="table plate-details">
             <tbody>
-              <tr>
+              <tr *ngFor = "let item of plate.items, let i = index">
                 <th scope="row" class="it-image">
                   <img src="../../../assets/img/menu-img/item-temp.png" alt="{{item.it_name}}">
                 </th>

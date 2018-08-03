@@ -44,5 +44,5 @@ $(document).ready(() => {
   $('.small-menu-icon .bar').on('click', () => {
     $('.small-menu-icon').toggleClass('animate-icon');
     $('.navbar').toggleClass('navbar-open');
-  });
+  });  
 });

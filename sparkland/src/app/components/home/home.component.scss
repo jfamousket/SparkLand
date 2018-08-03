@@ -12,6 +12,27 @@ a.btn {
 		@include br-md;
 	}
 }
+[class*='caption'] {
+	padding:50px;
+	text-align:center;
+	h1 {
+		width:50%;
+		margin:auto;
+		font-size: 5em;
+		text-align: left;
+		font-family: $merri;
+		font-weight: 900;
+		@media screen and (max-width: 900px) {
+			font-size:8vw;
+			width: 100%;
+		}
+	}
+	@media screen and (max-width: 900px) {
+		padding:20px;
+	}
+
+
+}
 .specials {
 	background:$nice-grey;
 }
@@ -49,6 +70,7 @@ a.btn {
 			border-radius: 0 0 10px 10px;
 			.special-title {
 				color:$orange;
+				padding:0;
 				text-align: left;
 				letter-spacing: 1px;
 				font-family: $merri;
@@ -57,6 +79,9 @@ a.btn {
 			}
 			.special-text {
 				font-weight: 600;
+				@media screen and (max-width:1000px) and (min-width:600px) {
+					font-size: 2vw !important;
+				}
 			}
 		}
 		&:hover {
@@ -96,14 +121,6 @@ a.btn {
 .specials-hero {
 	display:grid;
 	align-content: center;
-	.specials-caption {
-		h1 {
-			font-size: 3em;
-			text-align: left;
-			font-family: $merri;
-			font-weight: 900;
-		}
-	}
 	p {
 		font-size:1.7em;
 		font-weight: 600;
@@ -115,18 +132,6 @@ a.btn {
 	padding-top:10px;
 	background:$nice-grey;
 	text-align: center;
-}
-.service-caption {
-	padding:50px;
-	text-align:center;
-	h1 {
-		width:50%;
-		margin:auto;
-		font-size: 5em;
-		text-align: left;
-		font-family: $merri;
-		font-weight: 900;
-	}
 }
 .single-services {
 	padding:50px;
@@ -158,10 +163,6 @@ a.btn {
 	text-align: center;
 	height: auto;
 	position: relative;
-	.caption{
-		color:$theme-color;
-		font-size: 2.5em;
-	}
 }
 .team-member{
 	@media screen and (min-width: 100px){
@@ -186,7 +187,7 @@ a.btn {
 	.specials-hero {
 		grid-row-start: 1;
 		text-align: center;
-		padding: 30px;
+		padding: 15px;
 		.specials-caption {
 			h1 {
 				text-align: left;
@@ -197,13 +198,6 @@ a.btn {
 		}
 		a {
 			margin: auto;
-		}
-	}
-	.service-caption {
-		padding: 10px;
-		h1 {
-			width: 100%;
-			font-size: 3em;
 		}
 	}
 	.single-services {
