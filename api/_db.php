@@ -1,4 +1,5 @@
 <?php
+
     class DBConfig {
         private $_host = 'localhost';
         private $_username = '';
@@ -7,18 +8,25 @@
 
         protected $connection;
         public function __construct() {
-            if(!isset($connection)) {
-                $this->connection = new mysqli($this->_host, $this->_username, $this->_password, $this->_database);
+            $this->connection = null;
 
+            try {
+
+                $this->connection = new mysqli($this->_host, $this->_username, $this->_password, $this->_database);
                 if(!$this->connection) {
-                    echo "Cannot connect to the database server";
+                    throw new Exception("Cannot connect to the database");
                     exit;
                 }
+
+            } catch (Exception $e) {
+
+                echo "Connection Error:" . $e->getMessage();
+
             }
-            return $this->connection;
-        }
+
+        return $this->connection;
 
     }
-
+}
 
 ?>

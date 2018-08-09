@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ItemService } from 'services/item-service/item.service';
-import { MenuItem } from 'models/shared/menu-item';
+import { MenuItem } from 'shared/models/menu-item';
 
 @Injectable({
   providedIn: 'root'

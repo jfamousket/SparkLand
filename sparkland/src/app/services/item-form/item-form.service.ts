@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { MenuItem } from 'models/shared/menu-item';
+import { MenuItem } from 'shared/models/menu-item';
 import { ItemService } from 'services/item-service/item.service';
 
 @Injectable({
@@ -22,7 +22,10 @@ export class ItemFormService {
     let complements: MenuItem[] = [];
     let comps_id = item.comp_id.split(',');
     comps_id.forEach(id => {
-      this.itemService.getSpecificDataWithID(id).subscribe(comp => complements.push(comp[0]));
+      this.itemService.getSpecificDataWithID(id).subscribe(comp => { 
+        if(comp.message) return;
+        complements.push(comp[0])
+    });
     });
     return complements;
   }

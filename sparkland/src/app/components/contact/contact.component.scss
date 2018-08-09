@@ -1,4 +1,5 @@
-@import '../../../variables';
+@import 'variables';
+@import 'mixins';
 
 .main-header{
 	background-image: url('../../../assets/img/contact-img/main-header.jpg');
@@ -43,9 +44,42 @@ section{
 		}
 	}
 }
-.space{
-	background:$nice-grey;
-	height: 100px;
+
+.errors {
+	small {
+		font-size: 1vw;
+		@media screen and (max-width:1300px) {
+			font-size: 2vw;
+		}
+		@media screen and (max-width:900px) {
+			font-size: 3vw;
+		}
+	}
+}
+.success{
+	background: $white;
+	bottom: 0;
+	left:0;
+	z-index: 9;
+	position:fixed;
+	height: 150px;
+	width:100%;
+	text-align: center;
+	animation: slideInUp .5s forwards 0s ease-in-out;
+	box-shadow: 0 -1px 10px 0px rgba(0,0,0,.19);
+	@media screen and (max-width:600px) {
+		height: 80px;
+	}
+	h1{
+		@media screen and (max-width:600px) {
+			font-size: 3.5vw !important;
+			line-height: 80px;
+		}
+		line-height: 150px;
+		@include text-theme;
+		font-size:3vw;	
+	}
+	
 }
 /*animations*/
 
@@ -62,4 +96,15 @@ section{
 
 .animFadeInDown{
     animation: fadeInDown 1s forwards 0s ease-in;
+}
+
+@keyframes slideInUp{
+    0%{
+        transform: rotate(0) translateY(100px);
+        opacity: 0;
+        }
+    100%{
+        transform: rotate(0) translateY(0);
+        opacity: 1;
+        }
 }

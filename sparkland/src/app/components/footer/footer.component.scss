@@ -1,4 +1,4 @@
-@import '../../../variables';
+@import 'variables';
 
 footer{
 	background:$nice-grey;
@@ -7,8 +7,13 @@ footer{
 	text-align: center;
 	z-index: -1000000;
 	height: auto;
+	.caption , .caption * {
+		font-family: $merri;
+	}
 	h2{
 		font-size: 3em;
+		margin:0;
+		width:100%;
 	}
 	ul{
 		li{

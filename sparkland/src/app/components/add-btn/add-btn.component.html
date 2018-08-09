@@ -1,7 +1,0 @@
-<div class="add-btn">
-    <button *ngIf = "getqty() === 0; else updateQuantity" type="button"  (click) = "addToPlate()" 
-    (click) = "showComplements(item)" class="shadow">Add To Plate</button>
-  </div>
-  <ng-template #updateQuantity>
-    <item-qty [item] = "item"></item-qty>
-  </ng-template>

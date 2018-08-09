@@ -3,7 +3,7 @@ import { Router, NavigationEnd } from '@angular/router';
 import * as $ from 'jquery';
 import { PlateService } from 'services/plate-service/plate.service';
 import { Observable } from 'rxjs';
-import { Plate } from 'models/shared/plate';
+import { Plate } from 'shared/models/plate';
 import { map } from 'rxjs/operators';
 
 
@@ -23,15 +23,6 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     this.plateCount();
     this.router.events.subscribe(( _: NavigationEnd ) => this.currentUrl = _.url);
-
-    $(window).on('scroll', () => {
-      if ($(window).scrollTop() > 60) {
-          $('.scroll-header').css({'top': '0px', 'opacity': '1'});
-      } else {
-          $('.scroll-header').css({'top': '-100px', 'opacity': '0'});
-      }
-    });
-
   }
 
   plateCount() {
@@ -41,8 +32,16 @@ export class HeaderComponent implements OnInit {
 }
 
 $(document).ready(() => {
-  $('.small-menu-icon .bar').on('click', () => {
+  $('.small-menu-icon , .main-navigation, .overlay').on('click', () => {
+    $('.overlay').toggleClass('d-block');
     $('.small-menu-icon').toggleClass('animate-icon');
     $('.navbar').toggleClass('navbar-open');
-  });  
+  });
+
+  
+  $(window).on('scroll', () => {
+    if ($(window).scrollTop() > 60) $('.scroll-header').css({'top': '0px', 'opacity': '1'});
+    else  $('.scroll-header').css({'top': '-100px', 'opacity': '0'});
+  });
+
 });

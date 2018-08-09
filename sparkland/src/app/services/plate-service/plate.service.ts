@@ -1,17 +1,18 @@
 import { Injectable } from '@angular/core';
-import { MenuItem } from 'models/shared/menu-item';
+import { MenuItem } from 'shared/models/menu-item';
 import { DataService } from 'services/data-service/data.service';
 import { Http } from '@angular/http';
 import { map, catchError } from 'rxjs/operators';
-import { PlateItem } from 'models/shared/plate-item';
+import { PlateItem } from 'shared/models/plate-item';
 import { Observable } from 'rxjs';
-import { Plate } from 'models/shared/plate';
+import { Plate } from 'shared/models/plate';
+import swal from 'sweetalert';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PlateService {
-  private itemExist: boolean = false;
+  private itemExist: boolean;
 
   constructor (http: Http, private dataService: DataService) {
    }
@@ -21,7 +22,7 @@ export class PlateService {
    }
   
   getPlate() {
-    return new Observable((observer) => {
+     return new Observable((observer) => {
       observer.next( JSON.parse(localStorage.getItem('plate')))
     }).pipe(catchError(this.dataService.handleError));
   }
@@ -86,26 +87,38 @@ export class PlateService {
   }
 
   private createPlateItem(item: MenuItem): PlateItem {
-    let plateItem: PlateItem = {
-      it_id: item.it_id,
-      it_name: item.it_name,
-      it_price: item.it_price,
-      qty: 1,
-      getTotalPrice: () => {
-        return item.it_price * plateItem.qty;
-    }
-  }
+    let plateItem = new PlateItem();
+      plateItem.it_id = item.it_id,
+      plateItem.it_name = item.it_name,
+      plateItem.it_price = item.it_price,
+      plateItem.qty = 1
     return plateItem;
   }
 
 
   private updateItemQuantity(item: MenuItem, plate: PlateItem[], change: number) {
-    plate.forEach((plateItem,i) => { 
-      if(!(plateItem.it_id === item.it_id)) return;
-      this.itemExist = true;
-      plateItem.qty = plateItem.qty + change;
-      if(plateItem.qty < 1) plate.splice(i, 1);
-    });
+    let  plateItem, index;
+    plate.forEach((pItem,i) => {
+      if(pItem.it_id === item.it_id) {
+        plateItem = pItem;
+        plateItem.qty_in_stock = item.qty_in_stock;
+        index = i;
+        this.itemExist = true;
+    }});
+
+    if(!plateItem) return plate;
+
+    if(plateItem.qty >= item.qty_in_stock && change === +1){
+      swal("Sorry!! We have only " + plateItem.qty + " " + item.it_name + " left in stock");
+      return plate;
+    } 
+
+    plateItem.qty = plateItem.qty + change;
+    if(plateItem.qty < 1) {
+      this.itemExist = false;
+      plate.splice(index, 1);
+    }
+
     return plate;
   }
 

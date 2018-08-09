@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { OwlCarousel } from 'ngx-owl-carousel';
 import * as $ from 'jquery';
+import Swiper from 'swiper';
 
 @Component({
   selector: 'app-home',
@@ -8,16 +9,18 @@ import * as $ from 'jquery';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  slide = '.owl-carousel';
+  mySwiper = new Swiper('.owl', {
+
+  })
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  
 }
 
-$(document).ready(() => {
+$(document).ready(function () {
 
 });
-

@@ -1,0 +1,7 @@
+<div class="input-group">
+  <input type="text" (keyup) = "search(query.value)" (keyup.enter) = "performSearch(query.value)" #query placeholder="Search for any dish by name or price" 
+  class=" shadow search-input"/>
+  <button type="button" class="shadow search-btn hvr-bounce-in"
+  (click) = "performSearch(query.value)"><fa-icon [icon]="['fa', 'search']"></fa-icon></button>
+</div>
+<div class="w-100 my-2 small-lg" *ngIf="query.value">You searched for "{{query.value}}"</div>

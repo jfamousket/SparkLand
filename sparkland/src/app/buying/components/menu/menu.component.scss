@@ -1,0 +1,30 @@
+@import 'variables';
+@import 'mixins';
+
+section{
+	height: auto;
+	background:$nice-grey;
+}
+
+#category, #menu, #search, .intro{
+	background: $nice-grey;
+}
+.btns {
+	left:0;
+	margin:0;
+	bottom: 0;
+	width:100%;
+	text-align: center;
+	display: grid;
+	grid-template-columns: repeat(3, auto) !important;
+	grid-template-rows: 1fr;
+	.plus {
+		grid-row: auto;
+	}
+	.qty-btn {
+		grid-row: auto;
+	}
+	.minus {
+		grid-row: auto;
+	}
+}

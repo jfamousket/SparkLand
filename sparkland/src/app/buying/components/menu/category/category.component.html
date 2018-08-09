@@ -1,0 +1,13 @@
+<div class="row categories col-12 col-md-10 col-lg-12 mx-auto">
+  <div *ngFor = "let c of categoryList, let i = index" 
+    routerLink = "/menu" [queryParams] = "{ category: c }" class="card col col-lg shadow"
+    [class.active] = "category === c"> 
+      <div class="card-img-top">
+        <img src="../../../../assets/img/menu-img/{{c}}.svg" alt="{{c}}">
+      </div>
+      <div class="card-body">
+        <small class="text-muted">Filter By</small>
+        <h5 class="card-title text-theme">{{c}}</h5>
+      </div>
+    </div>
+</div>
