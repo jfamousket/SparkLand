@@ -1,10 +1,10 @@
 <?php
 
-    require_once '_crud.php';
+    header("Access-Control-Allow-Methods: POST");
 
+    require_once '_crud.php';
     $crud = new CRUD;
     $_POST = json_decode(file_get_contents("php://input"));
-
 
     function createArray($array, $value) {
         $arr = [];
@@ -13,8 +13,14 @@
         }
         return $arr;
     }
+    
+    $customerDetails = $_POST->data->customerDetails;
+
+    $name = $crud->escape_string($customerDetails->name);
+    $tel = $crud->escape_string($customerDetails->telephone);
+    $res = $crud->escape_string($customerDetails->residence);
+
     $orderId = $_POST->data->orderId;
-    $customerId = $_POST->data->customerId;
     $orderItems = $_POST->data->orderDetails->items;
 
     try {
@@ -24,8 +30,8 @@
         $qtys = createArray($orderItems, 'qty');
         $qtys = implode(',', $qtys);
 
-        $addSale = "INSERT INTO sales (sale_id, it_id, qty, cust_id, date_of_sale) 
-                    VALUES ('$orderId', '$it_ids', '$qtys', '$customerId', NOW())";
+        $addSale = "INSERT INTO sales (sale_id, it_id, qty, cust_name, telephone, residence, date_of_sale) 
+                    VALUES ('$orderId', '$it_ids', '$qtys', '$name', '$tel', '$res', NOW())";
 
         $query = $crud->execute($addSale);
 

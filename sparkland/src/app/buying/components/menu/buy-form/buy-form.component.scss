@@ -1,0 +1,157 @@
+@import 'variables';
+@import 'mixins';
+
+.btn{
+    padding:5px;
+    transition:all 0.4s ease-in-out;
+    @include br-sm;
+    background: $light-theme-color;
+    &:hover{
+        background:$theme-color;
+    }
+}
+
+form{
+    position: fixed;
+    bottom:-500px;
+    border-top:1px solid $theme-color;
+    //transform: translateY(500px);
+    left:0;
+    height:auto;
+    background:$white;
+    transition:all 0.5s ease-in-out;
+    opacity:1;
+    z-index: 999;
+    .complement-item{
+        .complement-image{
+        text-align:center;
+    }
+        .complement-details{
+            padding:10px;
+            text-align:center;
+            .complement-name{
+                text-align:center;
+                font-weight: bold;
+                font-size:1.7em;
+                color:$hcaptions;
+                letter-spacing: 2px;
+                vertical-align: middle;
+                text-transform: uppercase;
+            }
+            .complement-price{
+                text-align:center;
+                font-size:1.3em;
+                color:$hcaptions;
+                letter-spacing: 2px;
+                vertical-align: middle;
+                text-transform: uppercase;
+            }
+        }
+    }
+}
+.header{
+    .small-menu-icon{
+        display:flex;
+        z-index: 10;
+        cursor: pointer;
+        .bar{
+            height:4px;
+            width:30px;
+            align-self: center;
+            background:transparent;
+            position:absolute;
+            &::before{
+                content:'';
+                display:block;
+                position:absolute;
+                top:0px;
+                height:4px;
+                width:30px;
+                transform: rotate(45deg);
+                background:$captions;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            }
+            &::after{
+                content:'';
+                display:block;
+                position:absolute;
+                top:0px;
+                height:4px;
+                width:30px;
+                transform: rotate(135deg);
+                background:$captions;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            }
+        }
+    }
+    .caption{
+        font-size:1.5em;
+    }
+}
+
+
+@media screen and (max-width: 1000px) {
+    form {
+        padding: 1em 0 !important;
+        *{
+           z-index: 999; 
+        }
+        .complement-item{
+            padding:0;
+        }
+    }
+    .header{
+        .caption{
+            margin-top:40px;
+            font-size: 5vw;
+        }
+        .show-option{
+            position: absolute;
+            right:0;
+            margin-right:80px;
+            .btn{
+                font-size:0.8em;
+            }
+        }
+        .bar{
+            top:30px;
+            left:0;
+            margin-left: 5%;
+        }
+    }
+    .row {
+        padding:0px;
+    }
+}
+//Animations
+
+@keyframes slideInForm{
+    0%{
+        transform: translateY(500px);
+        opacity: 0;
+        }
+    100%{
+        transform: translateY(0px);
+        opacity:1;
+        }
+}
+
+.slide__In{
+    animation: slideInForm 0.4s forwards 0s ease-in-out;
+}
+
+
+@keyframes slideInDown{
+    0%{
+        transform: rotate(0) translateY(-10px);
+        opacity: 0;
+        }
+    100%{
+        transform: rotate(0) translateY(0);
+        opacity: 1;
+        }
+}
+
+.slide_In_Down{
+    animation: slideInDown .4s forwards ease-in-out;
+}

@@ -1,0 +1,249 @@
+/* You can add global styles to this file, and also import other style files */
+@import './variables';
+@import './mixins';
+
+*{
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+	outline: none;
+	font-family: Fira_SansLight;
+	font-weight: 300;
+	letter-spacing: normal;
+	max-width: 1920px;
+	margin: 0 auto;
+}
+body{
+	padding:0;
+	background:$nice-grey !important;
+	position:relative;
+	font-size: 100%;
+}
+ul{
+	margin:0;
+	padding:0;
+}
+.disabled {
+	cursor: not-allowed;
+	background:$hcaptions !important;
+	opacity:.4!important;
+}
+.theme-bg{
+	background:$theme-color !important;
+}
+.light-theme-bg {
+	background: $light-theme-color !important;
+}
+[class*="main"]{
+	margin:0;
+	padding:0;
+	text-align:center;
+}
+[class*="link"]{
+	cursor:pointer; 
+	text-decoration: none;
+	color:$white !important;
+}
+[class*="hvr"]{
+	&:before{
+		background: $theme-color !important;
+	}
+}
+a{
+	text-decoration: none;
+	border:0!important;
+	&:hover{
+		text-decoration: none;
+		border:0 !important;
+	}
+}
+.text-theme{
+	color:$theme-color;
+	background: -webkit-linear-gradient(8deg, rgba(248,34,69,1) 28%, rgba(243,146,55,1) 100%);
+	background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  fill: $light-theme-color;
+}
+.text-light-theme{
+	color:$light-theme-color;
+	background: -webkit-linear-gradient(8deg, rgba(255,120,143,1) 28%, rgba(255,182,113,1) 100%);
+	background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.text-sub{
+	color:$orange;
+}
+.caption{
+	color:$captions;
+	font-weight: 200;
+	transition:all 0.2s ease-in;
+	cursor:pointer;
+	&:hover{
+		color:$light-theme-color;
+	}
+}
+button{
+	background:$captions;
+	border:0;
+	outline:none;
+	color:$white;
+	padding:20px;
+	font-weight: bold;
+	cursor:pointer;
+}
+.btn{
+	color:$white !important;
+	border-radius: 0;
+	font-weight: bolder;
+	padding:10px;
+	background:$light-theme-color;
+}
+section{
+	background:$white;
+	margin:0;
+	padding:0;
+	height: 200px;
+}
+.dark{
+	background: rgba(0,0,0,0.5);
+	position: absolute;
+	height: 100%;
+	width:100%;
+	top:0;
+	bottom:0;
+	left:0;
+}
+.br-lg{
+	border-radius: 20px 20px 20px 0;
+}
+.br-md{
+	border-radius: 10px 10px 10px 0;
+}
+.br-sm{
+	border-radius: 5px 5px 5px 0;
+}
+.small-sm{
+	font-size:1.3em;
+}
+.small-md{
+	font-size:1.7em;
+}
+.small-lg{
+	font-size:2.2em;
+}
+small{
+	display:block;
+}
+input{
+	border:1px solid transparentize($captions, 0.5);
+}
+.owl-dots{
+	span{
+		background: $light-theme-color !important;
+		&:hover{
+			background:$theme-color !important;
+		}
+		
+	}
+	.active{
+		span{
+			background: $theme-color!important;
+		}
+	}
+}
+.round-pic{
+	border-radius: 20px 20px 20px 0;
+
+}
+.social-link{
+	background:$light-theme-color;
+	border-radius: 5px 5px 5px 0;
+	&:before{
+		border-radius: 5px 5px 5px 0;
+	}
+}
+.nice-bg{
+	background: $nice-grey;
+}
+
+/*Animations*/
+
+.slideInUp{
+	animation-name:slideInUp;
+	animation-duration:0.4s;
+	animation-timing-function:cubic-bezier(0.35, 0.16, 0.74, 0.83);
+}
+@keyframes slideInUp{
+	from{
+		-webkit-transform: translateY(110%);
+		   -moz-transform: translateY(110%);
+		    -ms-transform: translateY(110%);
+		     -o-transform: translateY(110%);
+		        transform: translateY(110%);
+		        opacity: 0;
+	}
+	to{
+		-webkit-transform: translateY(0%);
+		   -moz-transform: translateY(0%);
+		    -ms-transform: translateY(0%);
+		     -o-transform: translateY(0%);
+		        transform: translateY(0%);
+		        opacity: 1;
+	}
+}
+
+@keyframes fadeInDown{
+    0%{
+        transform: rotate(0) translateY(-20px);
+        opacity: 0;
+        }
+    100%{
+        transform: rotate(0) translateY(0);
+        opacity: 1;
+        }
+}
+
+.animFadeInDown{
+    animation: fadeInDown 1s forwards 0s ease-in;
+}
+
+
+/****Media******/
+
+@media screen and (max-width:600px) {
+
+	p, label, input, button, select{
+		font-size: 4vw !important;
+	}
+	h1 {
+		font-family: $merri;
+		font-size: 8vw !important;
+	}
+	.container-for-all-pages{
+		padding:10px;
+		background:$nice-grey;
+	}
+}
+@media screen and (max-width:1000px) and (min-width:600px) {
+
+	p, label, input, button, select{
+		font-size: 2.5vw !important;
+	}
+	h1 {
+		font-family: $merri;
+		font-size: 5vw !important;
+	}
+	h1 {
+		font-size: 4vw !important;
+	}
+
+	.container-for-all-pages{
+		padding:10px;
+		background:$nice-grey;
+	}
+	.btn {
+		touch-action: none;
+	}
+}

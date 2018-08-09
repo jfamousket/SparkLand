@@ -1,0 +1,29 @@
+@import 'variables';
+@import 'mixins';
+
+.card {
+    border-radius: 10px 10px 0 0;
+    border:0;
+    .card-body {
+        width:100%;
+    }
+}
+.list-group-item {
+    border: 0;
+    background: transparent;
+    margin:0;
+}
+.btn {
+    @include br-md;
+    padding:10px;
+    color:$theme-color !important;
+    font-weight: 800;
+    width: 100%;
+    &::before {
+        background: $theme-color !important;
+        @include br-md;
+    }
+    &:hover {
+        color: $white !important;
+    }
+}

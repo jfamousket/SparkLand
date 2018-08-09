@@ -1,0 +1,48 @@
+@import 'variables';
+@import 'mixins';
+
+.btns {
+    left:0;
+    margin:0;
+    bottom: 0;
+    width:100%;
+    max-width:350px;
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+}
+// Hack for plate icons arrangement for small screens
+.forPlate {
+    @media screen and (max-width:500px){
+        grid-template-columns: 100%;
+        grid-template-rows: 1fr 1fr 1fr;
+        .plus {
+            grid-row: 1/ span 1;
+        }
+        .qty-btn {
+            grid-row: 2/ span 1;
+        }
+        .minus {
+            grid-row: 3/ span 1;
+        }
+    }
+}
+.qty-btn{
+    background: transparent!important;
+    color:$black !important;
+    font-weight: 700px;
+}
+.item-btn {
+    border-radius: 50%;
+    height:60px;
+    width:60px;
+    @media screen and (max-width:600px){
+        height:40px;
+        padding:0;
+        width:40px;
+    }
+    background: $light-theme-color;
+    &:hover{
+        background:$theme-color;
+    }
+}

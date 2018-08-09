@@ -3,7 +3,7 @@ import * as $ from 'jquery';
 import { callLifecycleHooksChildrenFirst } from '@angular/core/src/view/provider';
 
 @Component({
-  selector: 'app-gallery',
+  selector: 'gallery',
   templateUrl: './gallery.component.html',
   styleUrls: ['./gallery.component.scss']
 })

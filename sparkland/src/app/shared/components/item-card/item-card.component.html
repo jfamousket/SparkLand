@@ -1,0 +1,12 @@
+<div class="menu-item my-lg-5 my-3 mx-0 shadow">
+  <div class="col-12 item-image">
+    <img src="../../../assets/img/menu-img/plate.svg" [alt]="item.it_name">
+  </div>
+  <div  class="col-12 item-details">
+    <h1 class="item-name">{{item.it_name}}</h1>
+    <small class="item-price small-sm my-2 text-sub"> {{item.it_price | currency: 'XAF'}}</small>
+  </div>
+  <div class="item-btn-wrapper col-12">
+    <add-btn [item] = "item"></add-btn>
+  </div>
+</div>

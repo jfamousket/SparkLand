@@ -30,10 +30,15 @@
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "./node_modules/owl.carousel/dist/assets/owl.carousel.css",
               "./node_modules/owl.carousel/dist/assets/owl.theme.default.css",
-              "src/variables.scss",
-              "src/mixins.scss",
-              "src/styles.scss"
+              "src/sass/variables.scss",
+              "src/sass/mixins.scss",
+              "src/sass/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "./src/sass",
+              ]
+            },
             "scripts": [
               "node_modules/jquery/dist/jquery.slim.js",
               "node_modules/popper.js/dist/umd/popper.min.js",
@@ -87,7 +92,7 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "src/styles.scss"
+              "src/sass/styles.scss"
             ],
             "scripts": [],
             "assets": [

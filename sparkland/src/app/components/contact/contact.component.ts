@@ -1,61 +1,44 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import {checkStart, checkNum, checkBadWords, checkWordStart } from 'shared/validation';
 
 import * as $ from 'jquery';
 import { SendRequestService } from 'services/send-request/send-request.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss']
 })
-export class ContactComponent implements OnInit {
+export class ContactComponent implements OnInit, OnDestroy {
   contactForm: FormGroup;
   name: FormGroup;
   sex: FormControl;
   fullname: FormControl;
+  number: FormControl;
   email: FormControl;
   location: FormControl;
   message: FormControl;
+  success: string;
+  failure: string;
 
 
   sexes: Array<string> = [
     'Mr',
     'Mrs'
   ];
+  subscription: Subscription;
 
   constructor(private SendRequest: SendRequestService, private formBuilder: FormBuilder) {
   }
   createFormControls() {
-    this.sex = new FormControl(null, Validators.required);
-    this.fullname = new FormControl(null, Validators.required);
-    this.email = new FormControl(null, [Validators.required, Validators.email]);
-    this.location = new FormControl(null, [Validators.required]);
-    this.message = new FormControl(null, [Validators.required]);
-  }
-
-  createForm() {
-    this.contactForm = this.formBuilder.group({
-      name : new FormGroup({
-        sex: this.sex,
-        fullname: this.fullname
-      }),
-      email: this.email,
-      location: this.location,
-      message: this.message
-    });
-  }
-
-  sendRequest (
-    contactForm
-  ) {
-    this.name = contactForm.name;
-    this.location = contactForm.location;
-    this.message = contactForm.message;
-    this.email = contactForm.email;
-
-    this.SendRequest.getRequestDetails(this.name, this.email, this.location, this.message);
-    return false;
+    this.sex = new FormControl('', Validators.required);
+    this.fullname = new FormControl('', [Validators.required, checkWordStart, checkBadWords]);
+    this.email = new FormControl('', [Validators.required, Validators.email]);
+    this.number = new FormControl('', [Validators.required, Validators.minLength(9), Validators.maxLength(9), checkStart, checkNum ]);
+    this.location = new FormControl('', [Validators.required]);
+    this.message = new FormControl('', [Validators.required]);
   }
 
   ngOnInit() {
@@ -63,8 +46,54 @@ export class ContactComponent implements OnInit {
     this.createFormControls();
     this.createForm();
   }
-}
 
-$(document).ready(function() {
-  /*$('select').niceSelect();*/
-});
+  ngOnDestroy() {
+    if(this.subscription) this.subscription.unsubscribe();
+  }
+
+  private sendRequest () {
+    this.subscription =  this.SendRequest.sendRequest(this.contactForm.value)
+    .subscribe(res => {
+      this.clearSuccessOrFailure(this.failure);
+      this.clearForm();
+      this.success = res.json();
+    }, (error) => {
+      this.clearSuccessOrFailure(this.success);          
+      this.failure = error.message;
+    });
+  }  
+
+  private createForm() {
+    this.contactForm = this.formBuilder.group({
+      name : new FormGroup({
+        sex: this.sex,
+        fullname: this.fullname
+      }),
+      email: this.email,
+      number: this.number,
+      location: this.location,
+      message: this.message
+    });
+  }
+  private clearSuccessOrFailure(value) {  
+    value = null; 
+    setTimeout(() => {
+        this.success = null;
+        this.failure = null;
+      }, 5000);
+  }
+  private clearForm() {
+    this.contactForm.reset({
+        name: {
+          sex: '',
+          fullname: '',
+        },
+        email: '',
+        number: '',
+        location: '',
+        message: ''
+      });
+
+  }
+
+}

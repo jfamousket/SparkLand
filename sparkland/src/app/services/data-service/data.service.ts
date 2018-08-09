@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { catchError, map } from 'rxjs/operators';
+import { catchError, map, retry } from 'rxjs/operators';
 import { throwError } from 'rxjs';
-import { AppError } from 'models/shared/app-error';
-import { NotFoundError } from 'models/shared/not-found';
-import { BadInput } from 'models/shared/bad-input';
+import { AppError } from 'shared/models/app-error';
+import { NotFoundError } from 'shared/models/not-found';
+import { BadInput } from 'shared/models/bad-input';
 
 @Injectable({
   providedIn: 'root'
@@ -18,34 +18,34 @@ export class DataService {
 
   getAllData(url){
     return this.http.get(url)
-            .pipe(map(resource => resource.json()),
+            .pipe(retry(3), map(resource => resource.json()),
                   catchError(this.handleError));
   }
 
-  sendData(url, data?) {
-    return this.http.post(url, { data})
-            .pipe(catchError(this.handleError));
+  sendData(url, data) {
+    return this.http.post(url, {data})
+            .pipe(retry(3), catchError(this.handleError));
   }
 
   updateData(url,data, id?) {
-    return this.http.patch(url, {data, id})
-            .pipe(catchError(this.handleError));
+    return this.http.put(url, {data, id})
+            .pipe(retry(3), catchError(this.handleError));
   }
 
   getSpecificData(url) {
     return this.http.get(url)
-            .pipe(map(resource => resource.json()),
+            .pipe(retry(3), map(resource => resource.json()),
                   catchError(this.handleError));
   }
 
   getSpecificDataWithID(url,id) {
-    return this.http.post(url, {"id": id})
-            .pipe(map(resource => resource.json()),
+    return this.http.get(url+"/?id=" + id)
+            .pipe(retry(3), map(resource => resource.json()),
                   catchError(this.handleError));
   }
 
   handleError(error: Response) {
-      if(error.status === 404 ) return throwError(new NotFoundError());
+      if(error.status === 404 ) return throwError(new NotFoundError(error, window.location));
       if(error.status === 400 ) return throwError(new BadInput(error.json()));
       return throwError(new AppError(error));
 

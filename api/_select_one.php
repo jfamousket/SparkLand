@@ -3,13 +3,17 @@
 
     $crud = new CRUD;
 
-    $data = json_decode(file_get_contents("php://input"));
+    $id = $_GET['id'];
 
-    $query = "SELECT * FROM item WHERE it_id = '$data->id' LIMIT 1";
+    $query = "SELECT * FROM item WHERE it_id = '$id' LIMIT 1";
 
     $data = $crud->getData($query);
 
     if($data){
         echo json_encode($data);
+    }else {
+        echo json_encode(array(
+            "message" => "No item found"
+        ));
     }
 ?>

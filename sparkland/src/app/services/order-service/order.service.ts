@@ -17,26 +17,17 @@ export class OrderService {
   addOrder(customerDetails, orderDetails) {
     let orderId = this.createOrderId(customerDetails);
     let customerId = this.plateService.getPlateId();
+    let totalPrice = orderDetails.totalPrice;
+    orderDetails.total = totalPrice;
 
-    
     let order = {
       orderId: orderId,
-      customerId: customerId,
       orderDetails: orderDetails,
-    } 
+      customerId: customerId,
+      customerDetails: customerDetails,
+    }     
     return this.dataService.sendData('/spark/api/sales.php', order);
   }
-
-  addCustomer(customerDetails) {
-    let customerId = this.plateService.getPlateId();
-
-    let customer = {
-      customerId: customerId,
-      customerDetails: customerDetails
-    }
-    return this.dataService.sendData('/spark/api/addCustomer.php', customer );
-  }
-  
 
   private createOrderId(customer) {
     let id = this.plateService.getPlateId();
