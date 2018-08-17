@@ -11,6 +11,9 @@ tr{
     display: grid;
     width: 100%;
     grid-template-columns: repeat(8, 1fr);
+    &:not(:last-of-type) {
+        border-bottom: 1px solid rgb(204, 204, 204);
+    }
 }
 .plate-details {
     margin:20px;

@@ -13,9 +13,25 @@ header("Access-Control-Allow-Headers: Access-Control-Allow-Headers, Access-Contr
         {
             parent::__construct();
         }
+        
+        private function logErrors($file) {
+            $error = json_encode(array(
+                        "error-number" => $this->connection->errno,
+                        "error-message" => $this->connection->error,
+                        "error-state" => $this->connection->sqlstate,
+                    ));
+
+            $errorFile = fopen('./errors/'.$file.".txt", "a+") or die(error_log($error, 1, "jfamousket@gmail.com"));
+            fwrite($errorFile, $error . "\n\n");
+            fclose($errorFile);
+        }
+
         public function getData($query) {
             $result=$this->connection->query($query);
-            if(!$result) return false;
+            if(!$result) {
+                $this->logErrors('getDataErrors'.$this->connection->errno);
+                return false;
+            }
 
             $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
             return $rows;
@@ -23,15 +39,12 @@ header("Access-Control-Allow-Headers: Access-Control-Allow-Headers, Access-Contr
 
         public function execute($query) {
             $result=$this->connection->query($query);
-            print_r(error_get_last());
-            if($result) return true;
-            
-            echo json_encode("Couldn't carry out request try again");
-            
-            $errorFile = fopen("error.txt", "w") or die(error_log(error_get_last(), 1, "jfamousket@gmail.com"));
+            if(!$result){
+                $this->logErrors('createDataErrors'.$this->connection->errno);
+                return false;
+            } 
 
-            fwrite($errorFile, $this->connection->error);
-            return false;            
+            return true;                   
         }
         
         public function escape_string($value) {
