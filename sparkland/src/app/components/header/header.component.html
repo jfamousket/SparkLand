@@ -40,11 +40,11 @@
   </div>
 </div>
 
-<div class="fixed-plate">
-  <div class="plate shadow hvr-bounce-in" [routerLink] = "['/plate']">
+<a class="fixed-plate" [routerLink] = "['/plate']">
+  <div class="plate shadow hvr-bounce-in">
     <div class="content">
       <span *ngIf="plateCount()"class="text-white font-weight-bold">#{{ count }}</span>
       <h2 class="text-white">Plate</h2>
     </div>
   </div>
-</div>
+</a>

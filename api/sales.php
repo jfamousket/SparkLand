@@ -13,6 +13,17 @@
         }
         return $arr;
     }
+
+    function reduceQty($array, $crud) {
+        foreach($array as $item=>$item_value) {
+            $id = $item_value->it_id;
+            $qty = $item_value->qty;
+
+            $getItem = "UPDATE item SET qty_in_stock = (qty_in_stock - $qty) WHERE it_id = '$id'  LIMIT 1";
+            $row = $crud->execute($getItem);
+
+        }
+    }
     
     $customerDetails = $_POST->data->customerDetails;
 
@@ -21,6 +32,7 @@
     $res = $crud->escape_string($customerDetails->residence);
 
     $orderId = $_POST->data->orderId;
+    $totalPrice = $_POST->data->orderDetails->total;
     $orderItems = $_POST->data->orderDetails->items;
 
     try {
@@ -30,8 +42,10 @@
         $qtys = createArray($orderItems, 'qty');
         $qtys = implode(',', $qtys);
 
-        $addSale = "INSERT INTO sales (sale_id, it_id, qty, cust_name, telephone, residence, date_of_sale) 
-                    VALUES ('$orderId', '$it_ids', '$qtys', '$name', '$tel', '$res', NOW())";
+        reduceQty($orderItems, $crud);
+
+        $addSale = "INSERT INTO sales (sale_id, it_id, qty, total_price, cust_name, telephone, residence, date_of_sale) 
+                    VALUES ('$orderId', '$it_ids', '$qtys', '$totalPrice', '$name', '$tel', '$res', NOW())";
 
         $query = $crud->execute($addSale);
 

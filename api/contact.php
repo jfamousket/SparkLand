@@ -24,14 +24,14 @@
         $query = $crud->execute($addMessage);
 
         if($query) {
-            echo(json_encode("Message has been sent we'll get back to you shortly"));
+            echo json_encode("Message has been sent we'll get back to you shortly");
             return;
         }
 
+        http_response_code(404);
+        echo json_encode("Couldn't send request message try again");
         throw new Exception("Couldn't add new message error");
-        http_response_code(400);
 
-        echo (json_encode("Couldn't send request message try again"));
         return;
 
     } 

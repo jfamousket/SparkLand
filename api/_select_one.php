@@ -5,7 +5,7 @@
 
     $id = $_GET['id'];
 
-    $query = "SELECT * FROM item WHERE it_id = '$id' LIMIT 1";
+    $query = "SELECT * FROM item WHERE it_id = '$id' AND qty_in_stock != 0 LIMIT 1";
 
     $data = $crud->getData($query);
 

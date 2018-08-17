@@ -45,6 +45,11 @@ ul{
 	color:$white !important;
 }
 [class*="hvr"]{
+	@media screen and (max-width:600px) {
+		&:hover, &:focus {
+			transform: none !important;
+		}
+	}
 	&:before{
 		background: $theme-color !important;
 	}

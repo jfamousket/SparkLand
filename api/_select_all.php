@@ -3,7 +3,7 @@
 
     $crud = new CRUD;
 
-    $query = "SELECT * FROM item";
+    $query = "SELECT * FROM item WHERE qty_in_stock != 0";
 
     $data = $crud->getData($query);
 
@@ -12,7 +12,7 @@
     } else {
         
         echo json_encode(
-            array('message' => 'No items Found')
+            array('error' => 'No items Found')
         );
     }
 

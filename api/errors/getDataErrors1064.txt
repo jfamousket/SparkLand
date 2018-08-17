@@ -1,0 +1,8 @@
+{"error-number":1064,"error-message":"You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'AND qty_in_stock != 0' at line 1","error-state":"42000"}
+
+{"error-number":1064,"error-message":"You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'AND qty_in_stock != 0' at line 1","error-state":"42000"}
+
+{"error-number":1064,"error-message":"You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'AND qty_in_stock != 0' at line 1","error-state":"42000"}
+
+{"error-number":1064,"error-message":"You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'AND qty_in_stock != 0' at line 1","error-state":"42000"}
+
