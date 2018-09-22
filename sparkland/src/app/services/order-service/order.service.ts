@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { DataService } from 'services/data-service/data.service';
 import { PlateService } from 'services/plate-service/plate.service';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +27,7 @@ export class OrderService {
       customerId: customerId,
       customerDetails: customerDetails,
     }     
-    return this.dataService.sendData('/spark/api/sales.php', order);
+    return this.dataService.sendData(`${environment.baseUrl}/sales.php`, order);
   }
 
   private createOrderId(customer) {
