@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { DataService } from 'services/data-service/data.service';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ItemService {
-  getAllDataUrl = '/spark/api/_select_all.php';
-  getSpecificDataUrl = '/spark/api/_select_category.php';
-  getSpecificDataUrlWithID = '/spark/api/_select_one.php';
+  getAllDataUrl = `${environment.baseUrl}/_select_all.php`;
+  getSpecificDataUrl = `${environment.baseUrl}/spark/api/_select_category.php`;
+  getSpecificDataUrlWithID = `${environment.baseUrl}/spark/api/_select_one.php`;
   
   constructor(private dataService: DataService) {
   }
