@@ -1,0 +1,6 @@
+<div class="dark-bg" [ngClass]="{'notify': notify}">
+  <div class="success" >
+    <div #content><ng-content ></ng-content></div>
+    <div class="loading" *ngIf="content.innerHTML.trim()"></div>
+  </div>
+</div>

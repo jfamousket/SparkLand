@@ -1,0 +1,71 @@
+<div class="container-for-all-pages">
+    <section class="col-12 pb-lg-3 pb-1 p-0">
+    <h1 class="text-center mb-0 pt-5 text-theme">Send Your Request, Complains, And Questions To Us </h1>
+    <small class="text-center caption d-block small-sm">Please fill in accurately for quick replies, we typically reply in 24 hours</small>
+    
+    <form class="contact-form col-12 col-lg-6 p-md-5 p-lg-5 p-3 mx-auto shadow animFadeInDown" novalidate (ngSubmit) = "sendRequest(contactForm.value)" [formGroup] = "contactForm">
+      <fieldset formGroupName = "name">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <select name="title" id="" formControlName="sex">
+            <option value="--" selected="selected" disabled="disabled">--</option>
+            <option *ngFor = "let sex of sexes" value ="{{sex}}">{{sex}}</option>
+          </select>
+          <div class="errors" *ngIf = "sex.invalid && (sex.touched || sex.dirty)">
+              <small class="text-danger">please choose a title</small>
+          </div>
+        </div>
+        <div class="from-group">
+          <label for="name">Name</label>
+          <input type="text" autocomplete="name" placeholder="FIRST NAME LASTNAME" name="name" formControlName = "fullname">
+          <div class="errors" *ngIf="(fullname.touched || fullname.dirty) && fullname.invalid">
+              <small *ngIf="fullname.errors.required" class="text-danger">A name is required</small>
+              <small *ngIf="fullname.errors.checkBadWordsError" class="text-danger">Your name contains some invalid characters</small>
+              <small *ngIf="fullname.errors.checkWordStartError" class="text-danger">A name cannot start with a space</small>
+          </div>
+        </div>
+      </fieldset>
+      
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" placeholder="someexample@mail.com" autocomplete="email" name="email" formControlName = "email">
+        <div class="errors" *ngIf = "email.invalid && (email.touched || email.dirty)">
+            <small class="text-danger" >please enter a valid email address</small>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="location">Street</label>
+        <input type="text" placeholder="Street" name="location" autocomplete='address-line1' formControlName = "location">
+        <div class="errors" *ngIf = "location.invalid && (location.touched || location.dirty)">
+            <small class="text-danger" >please enter your location</small>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="number">Phone Number</label>
+        <input type="text" placeholder="Phone Number" name="number" autocomplete='tel' formControlName = "number">
+        <div class="errors" *ngIf="number.touched && number.invalid">
+            <small *ngIf="number.errors.required" class="text-danger">A phone number is required</small>
+            <small *ngIf="number.errors.maxlength" class="text-danger">Phone number cannot be greater than 9</small>
+            <small *ngIf="number.errors.minlength" class="text-danger">Phone number cannot be less than 9</small>
+            <small *ngIf="number.errors.startValueError" class="text-danger">Phone number must begin with 6</small>
+            <small *ngIf="number.errors.checkNumError" class="text-danger">Phone number must be only numbers</small>
+          </div> 
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea name="message" id="" cols="10" rows="5" formControlName = "message"></textarea>
+        <div class="errors" *ngIf = "message.invalid && (message.touched || message.dirty)">
+            <small class="text-danger" >please enter a complain, request or question</small>
+        </div>
+      </div>
+      <button class="btn" type="submit" [disabled] = "contactForm.invalid" [class.hvr-sweep-to-right] ="contactForm.valid">Send</button>
+      <div class="errors my-3">
+              <small class="text-danger" *ngIf="contactForm.invalid && contactForm.touched" >Complete This Form To Activate This Button</small>
+      </div>
+    </form>
+    <notify-bar class="notify-bar" [notify] ="notify">
+        <h1>{{failure}}</h1>
+        <h1>{{success}}</h1>
+    </notify-bar>
+  </section>
+</div>
