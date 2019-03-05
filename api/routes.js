@@ -29,12 +29,14 @@ router.route('/getItem/:name').get((req, res) => {
 });
 
 router.route('/addSale').post((req, res) => {
+    console.log(req)
     let order = {
         ...req.body.data,
         date_created: new Date()
     }
     Order.create(order, (err, newOrder) => {
         if(err){
+            console.log(err.status)
             return res.status(400).send(err); 
         } 
         res.status(200).send(newOrder) 
