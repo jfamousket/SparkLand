@@ -3,6 +3,8 @@
 This is a project on an online restaurant, where customers are able to place orders. 
 The project is built with Angular on the frontend and NodeJs, Express, MongoDB on the backend.
 
+The current version of this project can be found on https://sparkland.herokuapp.com/menu
+
 ## Runing Project
 
 * Download or clone the project
