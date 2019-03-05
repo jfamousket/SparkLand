@@ -2,8 +2,13 @@ const Item = require('./item');
 const Order = require('./order');
 const Contact = require('./contact');
 const ObjectID = require('mongodb').ObjectID;
+const path = require('path');
 
 module.exports = function (app) {
+    app.get('/*', function(req, res) {
+        res.sendFile(path.join(__dirname + 'dist/index.html'))
+    });
+
     app.route('/getMenu').get((req, res) => {
         Item.find({}, (err, items) => {
             let itemList = []

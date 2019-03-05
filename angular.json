@@ -36,7 +36,7 @@
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "./src/sass",
+                "./src/sass"
               ]
             },
             "scripts": [
@@ -70,7 +70,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angTemp:build"
+            "browserTarget": "angTemp:build",
+            "proxyConfig": "./proxy.conf.json"
           },
           "configurations": {
             "production": {

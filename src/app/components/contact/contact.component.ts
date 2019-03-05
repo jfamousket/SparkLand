@@ -51,7 +51,7 @@ export class ContactComponent implements OnInit, OnDestroy {
     if(this.subscription) this.subscription.unsubscribe();
   }
 
-  private sendRequest () {
+  sendContact () {
     this.notify = true
     this.subscription =  this.SendRequest.sendRequest(this.contactForm.value)
     .subscribe(res => {
