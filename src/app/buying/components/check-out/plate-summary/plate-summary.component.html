@@ -1,18 +1,20 @@
 <div class="card col-12 theme-bg text-white">
   <div class="card-body">
     <h5 class="card-title text-center font-weight-bold">Order Summary</h5>
-    <p class="card-text">You have {{plate.totalItemsCount}} items in your shopping cart</p>
+    <p class="card-text">
+      You have {{ plate.details.totalItems }} items in your shopping cart
+    </p>
     <ul class="list-group bg-transparent">
       <li class="list-group-item" *ngFor="let item of plate.items">
-        {{item.qty}} x {{item.it_name}}
+        {{ item.total_qty }} x {{ item.it_name }}
         <div class="d-inline-block float-right">
-          {{ item.qty * item.it_price | currency: "XAF" }}
+          {{ item.total_price | currency: "XAF" }}
         </div>
       </li>
       <li class="list-group-item font-weight-bold">
         Total
         <div class="float-right font-weight-bold">
-          {{ plate.totalPrice | currency: "XAF"}}
+          {{ plate.details.totalPrice | currency: "XAF" }}
         </div>
       </li>
     </ul>

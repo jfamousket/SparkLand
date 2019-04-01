@@ -1,32 +1,27 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ItemService } from 'services/item-service/item.service';
+import { Component, OnInit, Input } from "@angular/core";
+import { Observable } from "rxjs";
+import { select, Store } from "@ngrx/store";
+import { getCategories } from "src/app/buying/store/selectors/menu.selectors";
+import { MenuState } from "src/app/buying/store/reducers/menu/menu-reducer.reducer";
 
 @Component({
-  selector: 'category',
-  templateUrl: './category.component.html',
-  styleUrls: ['./category.component.scss']
+  selector: "category",
+  templateUrl: "./category.component.html",
+  styleUrls: ["./category.component.scss"]
 })
 export class CategoryComponent implements OnInit {
-  @Input('category') category;
+  @Input("category") category;
 
-  categoryList: Array<object> = [];
+  categoryList$: Observable<string[]>;
 
-  constructor(private itemService: ItemService) { 
-
-  }
+  constructor(private store: Store<MenuState>) {}
 
   ngOnInit() {
-    this.itemService.getSpecificData()
-      .subscribe(categories => {
-        categories.forEach((category) => {
-          if(!this.categoryList.includes(category["category"])) this.categoryList.push(category['category']);
-          return;
-        });
-      });
+    this.categoryList$ = this.store.pipe(select(getCategories));
   }
 }
 $(document).ready(function() {
-  $('.card').click(() => {
-    $('#menu').scrollTop(0);
+  $(".card").click(() => {
+    $("#menu").scrollTop(0);
   });
 });

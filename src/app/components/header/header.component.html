@@ -1,18 +1,26 @@
 <div class="col-12 text-center main-header">
-  <img src="../../../assets/img/main-header.jpg">
+  <img src="../../../assets/img/main-header.jpg" />
   <div class="small-menu-icon">
-      <div class="bar-wrapper"></div>
-      <div class="bar"></div>
+    <div class="bar-wrapper"></div>
+    <div class="bar"></div>
   </div>
   <div class="overlay"></div>
   <nav class="navbar navbar-expand-lg">
     <div class="main-navigation row col-12">
-        <ul class="mx-auto">
-          <li class="hvr-underline-from-center" [routerLinkActive] ="['current']"><a class="link" [routerLink]="['/home']">Home</a></li>
-          <li class="hvr-underline-from-center" [routerLinkActive] ="['current']"><a class="link" [routerLink] = "['/menu']">Menu</a></li>
-          <li class="hvr-underline-from-center" [routerLinkActive] ="['current']"><a class="link" [routerLink] = "['/about']">About</a></li>
-          <li class="hvr-underline-from-center" [routerLinkActive] ="['current']"><a class="link" [routerLink] = "['/contact']">Contact Us</a></li>
-        </ul>
+      <ul class="mx-auto">
+        <li class="hvr-underline-from-center" [routerLinkActive]="['current']">
+          <a class="link" [routerLink]="['/home']">Home</a>
+        </li>
+        <li class="hvr-underline-from-center" [routerLinkActive]="['current']">
+          <a class="link" [routerLink]="['/menu']">Menu</a>
+        </li>
+        <li class="hvr-underline-from-center" [routerLinkActive]="['current']">
+          <a class="link" [routerLink]="['/about']">About</a>
+        </li>
+        <li class="hvr-underline-from-center" [routerLinkActive]="['current']">
+          <a class="link" [routerLink]="['/contact']">Contact Us</a>
+        </li>
+      </ul>
     </div>
   </nav>
 
@@ -23,28 +31,40 @@
       <h2 class="text-white">Best Food | Best Cooks</h2>
     </div>
   </div>
-
 </div>
 
 <!-- Scroll-Header -->
 
 <div class="scroll-header col-12 clearfix row shadow-lg m-0">
   <div class="col-9 col-12 mx-auto">
-    <div class="col-3 float-left scroll-brand">Spark <span class="caption">Land</span></div>
+    <div class="col-3 float-left scroll-brand">
+      Spark <span class="caption">Land</span>
+    </div>
     <ul class="scroll-links clearfix text-right">
-      <li class="hvr-underline-from-center" [routerLinkActive] ="['current']"><a class="link" [routerLink]="['/home']">Home</a></li>
-      <li class="hvr-underline-from-center" [routerLinkActive] ="['current']"><a class="link" [routerLink] = "['/menu']">Menu</a></li>
-      <li class="hvr-underline-from-center" [routerLinkActive] ="['current']"><a class="link" [routerLink] = "['/about']">About</a></li>
-      <li class="hvr-underline-from-center" [routerLinkActive] ="['current']"><a class="link" [routerLink] = "['/contact']">Contact Us</a></li>
+      <li class="hvr-underline-from-center" [routerLinkActive]="['current']">
+        <a class="link" [routerLink]="['/home']">Home</a>
+      </li>
+      <li class="hvr-underline-from-center" [routerLinkActive]="['current']">
+        <a class="link" [routerLink]="['/menu']">Menu</a>
+      </li>
+      <li class="hvr-underline-from-center" [routerLinkActive]="['current']">
+        <a class="link" [routerLink]="['/about']">About</a>
+      </li>
+      <li class="hvr-underline-from-center" [routerLinkActive]="['current']">
+        <a class="link" [routerLink]="['/contact']">Contact Us</a>
+      </li>
     </ul>
   </div>
 </div>
-
-<a class="fixed-plate" [routerLink] = "['/plate']">
-  <div class="plate shadow hvr-bounce-in">
-    <div class="content">
-      <span *ngIf="plateCount()"class="text-white font-weight-bold">#{{ count }}</span>
-      <h2 class="text-white">Plate</h2>
+<ng-container *ngIf="(count$ | async) as count">
+  <a class="fixed-plate" [routerLink]="['/plate']">
+    <div class="plate shadow hvr-bounce-in">
+      <div class="content">
+        <span *ngIf="count" class="text-white font-weight-bold"
+          >#{{ count }}</span
+        >
+        <h2 class="text-white">Plate</h2>
+      </div>
     </div>
-  </div>
-</a>
+  </a>
+</ng-container>

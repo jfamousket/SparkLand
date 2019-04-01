@@ -1,30 +1,7 @@
-import { PlateItem } from 'shared/models/plate-item';
-import { MenuItem } from 'shared/models/menu-item';
+import { PlateItem } from "shared/models/plate-item";
 
-export class Plate {
-
-    constructor(public items) {
-    }
-
-    getQuantity(cardItem: MenuItem){
-        let plateItem: PlateItem
-        if(!this.items) return 0;
-        this.items.forEach(item => { if(item._id === cardItem._id) plateItem = item });
-        return plateItem ? plateItem.qty : 0;
-      }
-
-    get totalItemsCount(): number{
-        let count = 0;
-        for (let item_id in this.items) 
-            count += this.items[item_id].qty;
-        return count;
-    }
-    get totalPrice(): number{
-        let sum = 0;
-        if(!this.items) return sum;
-        this.items.forEach(item => {
-            sum += (item.qty * item.it_price);
-        });
-        return sum;
-    }
+export interface Plate {
+  items: { [_id: number]: PlateItem };
+  total_price: number;
+  total_qty: number;
 }

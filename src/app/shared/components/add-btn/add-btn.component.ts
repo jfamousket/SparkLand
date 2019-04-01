@@ -1,36 +1,44 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { PlateService } from 'services/plate-service/plate.service';
-import { Plate } from 'shared/models/plate';
-import { map } from 'rxjs/operators';
-import { ItemFormService } from 'services/item-form/item-form.service';
-import { MenuItem } from 'shared/models/menu-item';
+import { Component, OnInit, Input } from "@angular/core";
+import { ItemFormService } from "services/item-form/item-form.service";
+import { MenuItem } from "shared/models/menu-item";
+import { PlateState } from "src/app/buying/store/reducers/plate/plate.reducer";
+import { Store, select } from "@ngrx/store";
+import {
+  AddItem,
+  RemoveItem,
+  AddItemQuantity,
+  ReduceItemQuantity
+} from "src/app/buying/store/actions/plate.actions";
+import { getItemQty } from "src/app/buying/store/selectors/plate.selectors";
+import { Observable } from "rxjs";
 
 @Component({
-  selector: 'add-btn',
-  templateUrl: './add-btn.component.html',
-  styleUrls: ['./add-btn.component.scss']
+  selector: "add-btn",
+  templateUrl: "./add-btn.component.html",
+  styleUrls: ["./add-btn.component.scss"]
 })
 export class AddBtnComponent implements OnInit {
-  @Input('item') item;
-  @Input('onForm') onForm;
-  itemChosen: MenuItem;
-  plate;
-  
-  constructor(private plateService: PlateService, private itemFormService: ItemFormService) { }
+  @Input("item") item;
+  @Input("onForm") onForm;
+  @Input() fromPlate: boolean;
+  // itemChosen: MenuItem;
+  itemQty$: Observable<number>;
 
-  addToPlate() {
-    this.plateService.addToPlate(this.item);
+  constructor(private store: Store<PlateState>) {}
+
+  addToPlate(item = this.item) {
+    this.store.dispatch(new AddItem(item));
   }
-  getqty(){
-    this.plateService.getPlate().pipe(map(x => new Plate(x))).subscribe(plate => this.plate = plate.getQuantity(this.item));
-    return this.plate;
+  reduceItemQty(item = this.item) {
+    this.store.dispatch(new ReduceItemQuantity(item));
+  }
+  addItemQty(item = this.item) {
+    this.store.dispatch(new AddItemQuantity(item));
   }
   ngOnInit() {
-    this.itemFormService.itemChosen.subscribe(item => this.itemChosen = item);
- 
+    this.itemQty$ = this.store.pipe(select(getItemQty(this.item)));
   }
-   showComplements(item: MenuItem, onForm?: boolean) {
-     onForm ? null : this.itemFormService.changeItem(item);
+  showComplements(item: MenuItem, onForm?: boolean) {
+    // onForm ? null : this.itemFormService.changeItem(item);
   }
-
 }

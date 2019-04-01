@@ -1,36 +1,23 @@
-import { Component, Input } from '@angular/core';
-import { MenuItem } from 'shared/models/menu-item';
-import { PlateService } from 'services/plate-service/plate.service';
-import { Subscription } from 'rxjs';
-import { Plate } from 'shared/models/plate';
-import { map } from 'rxjs/operators';
+import { Component, Input, Output, EventEmitter } from "@angular/core";
+import { MenuItem } from "shared/models/menu-item";
 
 @Component({
-  selector: 'item-qty',
-  templateUrl: './item-qty.component.html',
-  styleUrls: ['./item-qty.component.scss']
+  selector: "item-qty",
+  templateUrl: "./item-qty.component.html",
+  styleUrls: ["./item-qty.component.scss"]
 })
 export class ItemQtyComponent {
-  @Input('item') item: MenuItem;
-  @Input('fromPlate') fromPlate: boolean;
-  qty: number;
-  
-  itemChosen: MenuItem;
-  subscription: Subscription;
-  constructor(private plateService: PlateService) {
-  }
-  addToPlate() {
-    this.plateService.addToPlate(this.item);
-  }
+  @Input("item") item: MenuItem;
+  @Input("fromPlate") fromPlate: boolean;
+  @Output() addItemQty = new EventEmitter<MenuItem>();
+  @Output() reduceItemQty = new EventEmitter<MenuItem>();
+  @Input("itemQty") itemQty: number;
 
-  removeFromPlate() {
-    this.plateService.removeFromPlate(this.item);
+  constructor() {}
+  addQty() {
+    this.addItemQty.emit(this.item);
   }
-
-  getQuantity(){
-    this.plateService.getPlate().pipe(map(x => new Plate(x))).subscribe(res => this.qty = res.getQuantity(this.item));
-    if(!this.qty) return 0;
-    return this.qty;
+  reduceQty() {
+    this.reduceItemQty.emit(this.item);
   }
-
 }

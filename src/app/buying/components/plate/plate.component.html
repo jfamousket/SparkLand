@@ -1,33 +1,53 @@
-<div class = "container-for-all-pages">
-  <section class="col-12">
-    <h1 class ="text-theme text-center p-lg-4 p-0">Edit Items On Your Plate And Check Out</h1>
-    <ng-container *ngIf = "getPlate()">
-      <div class="row">
-        <div class="col-12 col-lg-7 col-md-10 mx-auto p-2 p-lg-3">
-          <table class=" w-100 plate-details">
-            <tbody>
-              <tr *ngFor = "let item of plate.items, let i = index">
-                <td scope="row" class="it-image">
-                  <img src="../../../assets/img/menu-img/plate.svg" alt="{{item.it_name}}">
-                </td>
-                <td class="it-name">{{item.it_name}}</td>
-                <td class="it-qty">
-                  <item-qty [item]="item" [fromPlate] = "true"></item-qty>
-                </td>
-                <td class="it-price">{{ item.it_price }}</td>
-                <td class="it-price">{{ item.it_price * item.qty | currency: "XAF" }}</td>
-              </tr>
-              <tr>
-            </tbody>
-          </table>
-          <div class="text-center container m-0 mx-auto" *ngIf="plate.items">
-              <button class="btn hvr-sweep-to-right m-3 shadow" (click) = "clearPlate()" *ngIf = "plate.items.length">Clear Plate</button>
+<ng-container
+  *ngIf="{
+    items: plateItems$ | async,
+    details: plateDetails$ | async
+  } as plate"
+>
+  <div class="container-for-all-pages">
+    <section class="col-12">
+      <h1 class="text-theme text-center p-lg-4 p-0">
+        Edit Items On Your Plate And Check Out
+      </h1>
+      <ng-container>
+        <div class="row">
+          <div class="col-12 col-lg-7 col-md-10 mx-auto p-2 p-lg-3">
+            <table class=" w-100 plate-details">
+              <tbody>
+                <tr *ngFor="let item of plate.items; let i = index">
+                  <td scope="row" class="it-image">
+                    <img
+                      src="../../../assets/img/menu-img/plate.svg"
+                      alt="{{ item.it_name }}"
+                    />
+                  </td>
+                  <td class="it-name">{{ item.it_name }}</td>
+                  <td class="it-qty">
+                    <add-btn [item]="item" [fromPlate]="true"></add-btn>
+                  </td>
+                  <td class="it-price">{{ item.it_price }}</td>
+                  <td class="it-price">
+                    {{ item.total_price | currency: "XAF" }}
+                  </td>
+                </tr>
+                <tr></tr>
+              </tbody>
+            </table>
+            <div class="text-center container m-0 mx-auto" *ngIf="items">
+              <button
+                class="btn hvr-sweep-to-right m-3 shadow"
+                (click)="clearPlate()"
+                *ngIf="items.length"
+              >
+                Clear Plate
+              </button>
+            </div>
+          </div>
+          <div class="col-12 mx-auto col-md-9 col-lg-5">
+            <check-out [plate]="plate"></check-out>
           </div>
         </div>
-        <div class="col-12 mx-auto col-md-9 col-lg-5">
-          <check-out></check-out>
-        </div>
-      </div>
-    </ng-container>
-  </section>
-</div>
+      </ng-container>
+    </section>
+  </div>
+</ng-container>

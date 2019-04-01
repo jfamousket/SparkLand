@@ -1,15 +1,13 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input } from "@angular/core";
 
 @Component({
-  selector: 'plate-summary',
-  templateUrl: './plate-summary.component.html',
-  styleUrls: ['./plate-summary.component.scss']
+  selector: "plate-summary",
+  templateUrl: "./plate-summary.component.html",
+  styleUrls: ["./plate-summary.component.scss"]
 })
 export class PlateSummaryComponent implements OnInit {
-  @Input('plate') plate;
-  constructor() { }
+  @Input() plate;
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

@@ -1,5 +1,13 @@
-<div class="mx-auto btns" [class.forPlate] = "fromPlate">
-    <div class="p-0 minus"><button class="item-btn hvr-bounce-in shadow" (click)="removeFromPlate()"><fa-icon [icon]="['fa', 'minus']"></fa-icon></button></div>
-    <div class="qty-btn small-sm btn">{{ getQuantity() }}</div>
-    <div class="p-0 plus"><button class="item-btn hvr-bounce-in shadow" (click) = "addToPlate()"><fa-icon [icon]="['fa', 'plus']"></fa-icon></button></div>
+<div class="mx-auto btns" [class.forPlate]="fromPlate">
+  <div class="p-0 minus">
+    <button class="item-btn hvr-bounce-in shadow" (click)="reduceQty()">
+      <fa-icon [icon]="['fa', 'minus']"></fa-icon>
+    </button>
+  </div>
+  <div class="qty-btn small-sm btn">{{ itemQty }}</div>
+  <div class="p-0 plus">
+    <button class="item-btn hvr-bounce-in shadow" (click)="addQty()">
+      <fa-icon [icon]="['fa', 'plus']"></fa-icon>
+    </button>
+  </div>
 </div>
