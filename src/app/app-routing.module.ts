@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import { StoreRouterConnectingModule } from "@ngrx/router-store";
 import { Routes, RouterModule } from "@angular/router";
-import { CustomSerializer } from "shared/store/index";
+import { CustomSerializer } from "src/app/store-app/index";
 
 import { HomeComponent } from "./components/home/home.component";
 import { MenuComponent } from "src/app/buying/components/menu/menu.component";

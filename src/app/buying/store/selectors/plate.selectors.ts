@@ -1,8 +1,6 @@
 import { createSelector } from "@ngrx/store";
 import { getBuyingState, BuyingState } from "../index";
 import { PlateState } from "../reducers/plate/plate.reducer";
-import { PlateItem } from "shared/models/plate-item";
-import { MenuItem } from "shared/models/menu-item";
 import { getMenuEntities } from "./menu.selectors";
 
 export const getPlateState = createSelector(
@@ -18,9 +16,13 @@ export const getPlateItems = createSelector(
   getPlateEntities,
   getMenuEntities,
   (plateEntities, menuEntities): any[] => {
-    return Object.keys(plateEntities).map(id => {
-      return { ...menuEntities[id], ...plateEntities[id] };
-    });
+    return Object.keys(plateEntities)
+      .map(id => {
+        return { ...menuEntities[id], ...plateEntities[id] };
+      })
+      .sort((a, b) => {
+        return a.it_name > b.it_name ? -1 : 1;
+      });
   }
 );
 

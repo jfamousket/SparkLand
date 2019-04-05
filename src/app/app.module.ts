@@ -7,7 +7,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { SharedModule } from "./shared/shared.module";
 import { OwlModule } from "ngx-owl-carousel";
 import { BuyingModule } from "./buying/buying.module";
-import { reducers, metaReducers } from "shared/store/index";
+import { reducers, metaReducers } from "src/app/store-app/index";
 import { AppErrorHandler } from "./shared/error-handler";
 
 import { AppComponent } from "./app.component";

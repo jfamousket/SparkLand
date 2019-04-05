@@ -2,7 +2,7 @@ import { createSelector } from "@ngrx/store";
 
 import { getBuyingState, BuyingState } from "../index";
 import { MenuState } from "../reducers/menu/menu-reducer.reducer";
-import { getRouterState } from "shared/store/index";
+import { getRouterState } from "src/app/store-app/index";
 
 import { MenuItem } from "shared/models/menu-item";
 

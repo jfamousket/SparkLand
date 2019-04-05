@@ -12,7 +12,6 @@ export class PlateService {
   getPlateId() {
     return this.createPlateID();
   }
-
   getPlate() {
     return new Observable(observer => {
       observer.next(JSON.parse(localStorage.getItem("plate")));
@@ -21,13 +20,6 @@ export class PlateService {
   clearPlate() {
     localStorage.removeItem("plate");
     localStorage.setItem("plateID", String(this.genRandomId()));
-  }
-
-  private checkEmptyPlate(): boolean {
-    const plate = JSON.parse(localStorage.getItem("plate"));
-    if (!plate) return true;
-    if (!plate.length) return true;
-    return false;
   }
 
   private genRandomId(): number {

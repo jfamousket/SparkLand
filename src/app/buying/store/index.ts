@@ -1,8 +1,6 @@
 import {
-  ActionReducer,
   ActionReducerMap,
   createFeatureSelector,
-  createSelector,
   MetaReducer
 } from "@ngrx/store";
 import { MenuReducer, MenuState } from "./reducers/menu/menu-reducer.reducer";

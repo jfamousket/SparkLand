@@ -1,12 +1,7 @@
-import { Component, OnInit, OnDestroy } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { MenuItem } from "shared/models/menu-item";
-import { ActivatedRoute } from "@angular/router";
-import { FilterService } from "services/filter-service/filter.service";
 import { Store, select } from "@ngrx/store";
-import {
-  MenuState,
-  getSearchResults
-} from "../../store/reducers/menu/menu-reducer.reducer";
+import { MenuState } from "../../store/reducers/menu/menu-reducer.reducer";
 import { Observable } from "rxjs";
 import {
   getSearchItems,

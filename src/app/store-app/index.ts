@@ -1,8 +1,6 @@
 import {
-  ActionReducer,
   ActionReducerMap,
   createFeatureSelector,
-  createSelector,
   MetaReducer
 } from "@ngrx/store";
 import { storeFreeze } from "ngrx-store-freeze";
@@ -13,17 +11,20 @@ import {
   RouterReducerState
 } from "@ngrx/router-store";
 
-import { environment } from "../../../environments/environment";
+import { environment } from "../../environments/environment";
+import { SharedState, SharedReducer } from "./shared.reducer";
 
-export interface State {
+export interface AppState {
   router: RouterReducerState<RouterStateUrl>;
+  shared: SharedState;
 }
 
-export const reducers: ActionReducerMap<State> = {
-  router: routerReducer
+export const reducers: ActionReducerMap<AppState> = {
+  router: routerReducer,
+  shared: SharedReducer
 };
 
-export const metaReducers: MetaReducer<State>[] = !environment.production
+export const metaReducers: MetaReducer<AppState>[] = !environment.production
   ? [storeFreeze]
   : [];
 
@@ -54,3 +55,4 @@ export class CustomSerializer implements RouterStateSerializer<RouterStateUrl> {
 export const getRouterState = createFeatureSelector<
   RouterReducerState<RouterStateUrl>
 >("router");
+export const getSharedState = createFeatureSelector<SharedState>("shared");
