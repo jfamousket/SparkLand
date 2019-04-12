@@ -6,6 +6,6 @@
     "\\src\\app\\buying",
     "\\src\\app\\buying\\store"
   ],
-  "SelectedNode": "\\src\\app\\buying\\buying.module.ts",
+  "SelectedNode": "\\src\\app\\buying\\store\\index.ts",
   "PreviewInSolutionExplorer": false
 }

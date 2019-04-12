@@ -8,7 +8,7 @@ require("dotenv").config({ path: "./.env" });
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(express.static(`${__dirname}/dist`));
+app.use(express.static(`${__dirname}/dist`));
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true });
 
 app.use(function(req, res, next) {
@@ -22,9 +22,9 @@ app.use(function(req, res, next) {
 
 app.use("/api", routes);
 
-// app.get("/*", function(req, res) {
-//   res.sendFile(path.join(__dirname + "/dist/index.html"));
-// });
+app.get("/*", function(req, res) {
+  res.sendFile(path.join(__dirname + "/dist/index.html"));
+});
 
 const listener = app.listen(process.env.PORT || 5000, () => {
   console.log("Server is listening on port " + listener.address().port);
