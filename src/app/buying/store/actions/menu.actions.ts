@@ -8,7 +8,7 @@ export enum MenuActionTypes {
   LoadMenuEntitiesSuccess = "[MenuAction] Load MenuEntities Success",
   LoadMenuEntitiesFail = "[MenuAction] Load MenuEntities Fail",
   LoadComplementsSuccess = "[MenuAction] Load Complements Success",
-  LoadMenuCommplementsFail = "[MenuAction] Load Complements Fail",
+  LoadCommplementsFail = "[MenuAction] Load Complements Fail",
   SearchMenu = "[MenuAction] Search Menu",
   SearchMenuSuccess = "[MenuAction] Search Menu Success"
 }
@@ -41,8 +41,8 @@ export class LoadComplementsSuccess implements Action {
   constructor(public payload: MenuItem[]) {}
 }
 
-export class LoadMenuCommplementsFail implements Action {
-  readonly type = MenuActionTypes.LoadMenuCommplementsFail;
+export class LoadCommplementsFail implements Action {
+  readonly type = MenuActionTypes.LoadCommplementsFail;
   constructor(public payload: any) {}
 }
 
@@ -63,6 +63,6 @@ export type MenuActions =
   | LoadMenuEntitiesSuccess
   | LoadMenuEntitiesFail
   | LoadComplementsSuccess
-  | LoadMenuCommplementsFail
+  | LoadCommplementsFail
   | SearchMenu
   | SearchMenuSuccess;

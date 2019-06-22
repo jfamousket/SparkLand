@@ -13,27 +13,33 @@ import {
 
 import { environment } from "../../environments/environment";
 import { SharedState, SharedReducer } from "./shared.reducer";
+import { BuyingState, BuyingReducers } from "../buying/store";
 
+// main app state
 export interface AppState {
   router: RouterReducerState<RouterStateUrl>;
   shared: SharedState;
 }
 
+// main app reducers
 export const reducers: ActionReducerMap<AppState> = {
   router: routerReducer,
   shared: SharedReducer
 };
 
+// meta reducers with development tool `storefreeze`
 export const metaReducers: MetaReducer<AppState>[] = !environment.production
   ? [storeFreeze]
   : [];
 
+// interface for our router's state
 export interface RouterStateUrl {
   url: string;
   params: Params;
   queryParams: Params;
 }
 
+// serializer to return our router state according to interface above
 export class CustomSerializer implements RouterStateSerializer<RouterStateUrl> {
   serialize(routerState: RouterStateSnapshot) {
     let route = routerState.root;
@@ -52,6 +58,7 @@ export class CustomSerializer implements RouterStateSerializer<RouterStateUrl> {
   }
 }
 
+// state selectors
 export const getRouterState = createFeatureSelector<
   RouterReducerState<RouterStateUrl>
 >("router");

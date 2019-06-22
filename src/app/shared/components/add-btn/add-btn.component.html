@@ -1,4 +1,4 @@
-<div *ngIf="(itemQty$ | async) as qty; else addBtn">
+<div *ngIf="itemQty$ | async as qty; else addBtn">
   <item-qty
     [item]="item"
     [itemQty]="qty"

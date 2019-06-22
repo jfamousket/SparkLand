@@ -1,6 +1,8 @@
-<div class="dark-bg" [ngClass]="{'notify': notify}">
-  <div class="success" >
-    <div #content><ng-content ></ng-content></div>
-    <div class="loading" *ngIf="content.innerHTML.trim()"></div>
+<ng-container *ngIf="notification$ | async as notification">
+  <div class="dark-bg notify" (click)="closeNotify()">
+    <div class="success">
+      <div #content><ng-content></ng-content></div>
+      <div class="loading" *ngIf="!notification"></div>
+    </div>
   </div>
-</div>
+</ng-container>

@@ -79,7 +79,7 @@
           class="w-100 shadow btn"
           [class.disabled]="checkOut.invalid"
           [class.hvr-sweep-to-right]="checkOut.valid"
-          (click)="placeOrder(checkOut, itemList)"
+          (click)="placeOrder(checkOut.value, plate.details)"
           [disabled]="checkOut.invalid"
         >
           Place Order

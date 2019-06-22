@@ -12,7 +12,7 @@ export interface MenuState {
   searchResults: { [id: number]: MenuItem };
 }
 
-export const intialMenuState: MenuState = {
+export const initialMenuState: MenuState = {
   entities: {},
   complements: {},
   loadedEntities: false,
@@ -23,7 +23,7 @@ export const intialMenuState: MenuState = {
 };
 
 export function MenuReducer(
-  state = intialMenuState,
+  state = initialMenuState,
   action: MenuActions
 ): MenuState {
   switch (action.type) {
@@ -84,7 +84,7 @@ export function MenuReducer(
         loadedComplements: true
       };
     }
-    case MenuActionTypes.LoadMenuCommplementsFail: {
+    case MenuActionTypes.LoadCommplementsFail: {
       return {
         ...state,
         loadedComplements: false,

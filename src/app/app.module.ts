@@ -19,10 +19,10 @@ import { GalleryComponent } from "./components/gallery/gallery.component";
 import { HeaderComponent } from "./components/header/header.component";
 import { HomeComponent } from "./components/home/home.component";
 import { DataService } from "./services/data-service/data.service";
-import { SendRequestService } from "./services/send-request/send-request.service";
 import { ErrorService } from "services/error-service/error.service";
 import { NotifyBarComponent } from "./components/notify-bar/notify-bar.component";
 import { environment } from "src/environments/environment";
+import { SharedEffects } from "./store-app/shared.effects";
 
 @NgModule({
   declarations: [
@@ -40,7 +40,7 @@ import { environment } from "src/environments/environment";
     BrowserModule,
     SharedModule,
     StoreModule.forRoot(reducers, { metaReducers }),
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot([SharedEffects]),
     BuyingModule,
     AppRoutingModule,
     OwlModule,
@@ -48,7 +48,6 @@ import { environment } from "src/environments/environment";
   ],
   providers: [
     DataService,
-    SendRequestService,
     ErrorService,
     { provide: ErrorHandler, useClass: AppErrorHandler }
   ],

@@ -1,11 +1,11 @@
 import { SharedActionTypes, SharedActions } from "./shared.actions";
 
 export interface SharedState {
-  notify: boolean;
+  notification: string;
 }
 
 export const initialState: SharedState = {
-  notify: false
+  notification: ""
 };
 
 export function SharedReducer(
@@ -13,10 +13,31 @@ export function SharedReducer(
   action: SharedActions
 ): SharedState {
   switch (action.type) {
-    case SharedActionTypes.Notify: {
+    case SharedActionTypes.SendContactSuccess: {
+      const { payload } = action;
       return {
         ...state,
-        notify: true
+        notification: payload
+      };
+    }
+    case SharedActionTypes.SendContactFailure: {
+      const { payload } = action;
+      return {
+        ...state,
+        notification: payload
+      };
+    }
+    case SharedActionTypes.Notify: {
+      const { payload } = action;
+      return {
+        ...state,
+        notification: payload
+      };
+    }
+    case SharedActionTypes.UnNotify: {
+      return {
+        ...state,
+        notification: ""
       };
     }
     default:
